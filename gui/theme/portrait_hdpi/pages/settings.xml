@@ -691,7 +691,7 @@
 			</text>
 
 			<listbox style="settingslist">
-				<placement x="0" y="%row5_2a_y%" w="%screen_w%" h="%lb_l7%"/>
+				<placement x="0" y="%row5_2a_y%" w="%screen_w%" h="%lb_l6%"/>
 				<listitem name="{@enable_backup_comp_chk}">
 					<data variable="tw_use_compression"/>
 				</listitem>
