@@ -199,6 +199,64 @@ gr_surface gr_render_circle(int radius, unsigned char r, unsigned char g, unsign
     return (gr_surface)surface;
 }
 
+// [f/d] antialiased circle
+// mode:
+// * 0 - normal circle
+// * 1 - left side
+// * 2 - right side
+// * 3 - top-left part
+// * 4 - top-right part
+// * 5 - bottom-left part
+// * 6 - bottom-right part
+gr_surface gr_render_antialiased_circle(int radius, unsigned char r, unsigned char g, unsigned char b, unsigned char a, int mode = 0)
+{
+    int rx, ry;
+    GGLSurface *surface;
+    const int diameter = radius*2 + 1;
+    const int radius_check = radius*radius + radius*0.8;
+    const int radius_check_antialias = radius*radius + radius*1.6;
+    const uint32_t px = (a << 24) | (b << 16) | (g << 8) | r;
+    const uint32_t px_antialias = ((a / 2) << 24) | (b << 16) | (g << 8) | r;
+    // allocate 1/4 circle, 1/2 circle or full circle based on mode
+    //const int malloc_size = mode >= 3 ? diameter * diameter : mode >= 1 ? diameter * diameter * 2 : diameter * diameter * 4;
+    uint32_t *data;
+
+    surface = (GGLSurface *)malloc(sizeof(GGLSurface));
+    memset(surface, 0, sizeof(GGLSurface));
+
+    data = (uint32_t *)malloc(diameter * diameter * 4);
+    memset(data, 0, diameter * diameter * 4);
+
+    surface->version = sizeof(surface);
+    surface->width = diameter;
+    surface->height = diameter;
+    surface->stride = diameter;
+    surface->data = (GGLubyte*)data;
+#if defined(RECOVERY_BGRA)
+    surface->format = GGL_PIXEL_FORMAT_BGRA_8888;
+#else
+    surface->format = GGL_PIXEL_FORMAT_RGBA_8888;
+#endif
+
+    // I just combined various numbers until it worked
+    int mode_half_l = mode == 1 || mode == 3 || mode == 5 ? 0 : radius;
+    int mode_half_r = mode == 2 || mode == 6 || mode == 4 ? 0 : radius;
+    int mode_half_top = mode == 3 || mode == 4 ? 0 : radius;
+    int mode_half_bottom = mode == 6 || mode == 5 ? 0 : radius;
+
+    for(ry = -mode_half_bottom; ry <= mode_half_top; ++ry)
+        for(rx = -mode_half_r; rx <= mode_half_l; ++rx) {
+            int check = rx*rx+ry*ry;
+            if(check <= radius_check)
+                *(data + diameter*(mode_half_bottom + ry) + (mode_half_r+rx)) = px;
+            else if (check <= radius_check_antialias)
+                *(data + diameter*(mode_half_bottom + ry) + (mode_half_r+rx)) = px_antialias;
+        }
+
+    return (gr_surface)surface;
+}
+// [/f/d]
+
 void gr_color(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
     GGLContext *gl = gr_context;
