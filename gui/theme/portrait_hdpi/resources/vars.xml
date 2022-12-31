@@ -63,17 +63,13 @@
 		<variable name="list_font" value="0" persist="1"/>
 		<variable name="navbar_sams" value="0" persist="1"/>
 		<variable name="navbar_accent" value="1" persist="1"/>
-		<variable name="darker_ui" value="1" persist="1"/>
 		<variable name="show_slideout" value="1" persist="1"/>
-		<variable name="separate_status" value="1" persist="1"/>
 		<variable name="style_battery" value="0" persist="1"/>
-		<variable name="show_shadow" value="1" persist="1"/>
 		<variable name="hide_notch" value="0" persist="1"/> 
 		<variable name="auto_show_btns" value="0" persist="1"/> 
 		<variable name="instant_apply" value="0" persist="1"/> 
 		<variable name="key_allow_swipe" value="0" persist="1"/> 
-		<variable name="ota_new_screen" value="1" persist="1"/> 
-		<variable name="new_nav_panel_des" value="1" persist="1"/> 
+		<variable name="ota_new_screen" value="1" persist="1"/>
 
 		<variable name="gst_back_left" value="0" persist="1"/> 
 		<variable name="gst_back_right" value="0" persist="1"/> 
@@ -133,28 +129,36 @@
 		
 		<!-- NavPanel -->
 		<variable name="nav_item_w" value="270"/>
-		<variable name="nav_panel_h" value="312"/> <!-- 168+navbar -->
+		<variable name="nav_panel_h" value="216"/>
 		<variable name="nav_panel_id" value="0"/>
-		<variable name="nav_panel_y" value="%screen_h%-312"/>
-		<variable name="nav_icon_a_y" value="%screen_h%-228"/>
-		<variable name="ee_y" value="%screen_h%-486"/>
-		<variable name="nav_icon_y" value="%screen_h%-256"/>
-		<variable name="nav_text_y" value="%screen_h%-193"/>
+		<variable name="nav_panel_w" value="%screen_w%-96"/>
+		<variable name="nav_panel_x" value="48"/>
+		<variable name="nav_panel_y" value="%screen_h%-360"/>
+		<variable name="nav_icon_y" value="%screen_h%-282"/>
+		<variable name="nav_text_y" value="%screen_h%-202"/>
 		<variable name="nav_item_y" value="%screen_h%-228"/>
-		<variable name="nav_item_1" value="135"/>
-		<variable name="nav_item_2" value="405"/>
-		<variable name="nav_item_3" value="675"/>
-		<variable name="nav_item_4" value="945"/>
+		<variable name="nav_item_1" value="171"/>
+		<variable name="nav_item_2" value="417"/>
+		<variable name="nav_item_3" value="663"/>
+		<variable name="nav_item_4" value="909"/>
 		<variable name="nav_path_w" value="648"/>
+
+		
+		<variable name="np_pill_w" value="192"/>
+		<variable name="np_pill_h" value="96"/>
+		<variable name="np_pill_y" value="%screen_h%-330"/>
+		<variable name="np_pill_x1" value="75"/> <!-- 48 + 27 -->
+		<variable name="np_pill_x2" value="321"/> <!-- 48 + 27 + np_pill_w + 27 + 27 -->
+		<variable name="np_pill_x3" value="567"/>
+		<variable name="np_pill_x4" value="813"/>
 		
 		<!-- File Selector w/ NavPanel -->
-		<variable name="files_np_w" value="%screen_min_cut%-552"/>
+		<variable name="files_np_w" value="%screen_min_cut%-600"/>
 		<variable name="files_np_mm_y" value="408+%cutout_w%"/>
 		
 		<!-- UI w/ NavPanel -->
-		<variable name="row_btn2_np_y" value="%screen_h%-768"/>
-		<variable name="slider_np_y" value="%screen_h%-486"/>
-		<variable name="slider_text_np_y" value="%screen_h%-594"/>
+		<variable name="slider_np_y" value="%screen_h%-534"/>
+		<variable name="slider_text_np_y" value="%screen_h%-642"/>
 		<variable name="slider_text_y_l" value="%screen_original_h%-281"/>
 		
 		<!-- NavPanel colors -->
@@ -170,8 +174,8 @@
 		<variable name="part_list_btns_h" value="%screen_min_cut%-1446"/> <!-- Backup parts -->
 		<variable name="part_backup_info_y" value="%screen_h%-678"/>
 		<variable name="part_backup_line_y" value="%screen_h%-696"/>
-		<variable name="part_list_btns_9_h" value="%screen_min_cut%-1140"/> <!-- Mount parts -->
-		<variable name="part_list_mount_h" value="%screen_min_cut%-654"/> <!-- Wipe parts -->
+		<variable name="part_list_btns_9_h" value="%screen_min_cut%-1188"/> <!-- Wipe parts -->
+		<variable name="part_list_mount_h" value="%screen_min_cut%-654"/> <!-- Mount parts -->
 		
 		<!--variable name="flash_img_part_expanded" value="%screen_min_cut%-1122"/-->
 		<variable name="flash_img_part" value="%screen_min_cut%-1396"/>
@@ -372,10 +376,13 @@
 		<variable name="fileselector_spacing" value="0"/>
 		
 		<!-- Title / Title buttons -->
-		<variable name="search_files_h" value="%screen_min_cut%-674"/>
+		<variable name="search_files_h" value="%screen_min_cut%-722"/>
 		<variable name="search_files_y" value="360+%cutout_w%"/>
 		<variable name="search_bar_y" value="72+%cutout_w%"/>
-		<variable name="path_y" value="268+%cutout_w%"/>
+		<variable name="search_bar_bg_y" value="96+%cutout_w%"/>
+		<variable name="search_bar_line_y" value="238+%cutout_w%"/>
+		<variable name="path_text_y" value="268+%cutout_w%"/>
+		<variable name="path_y" value="240+%cutout_w%"/>
 		<variable name="path_arrow_y" value="300+%cutout_w%"/>
 		<variable name="ab_search_y" value="168+%cutout_w%"/>
 		<variable name="ab_search_text_y" value="138+%cutout_w%"/>

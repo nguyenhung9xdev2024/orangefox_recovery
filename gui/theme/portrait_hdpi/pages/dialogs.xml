@@ -11,19 +11,8 @@
 				<action function="key">back</action>
 			</button>
 
-			<image>
-				<condition var1="show_shadow" var2="1"/>
-				<placement x="0" y="%down_menu_y%" placement="2"/>
-				<image resource="nav_shadow"/>
-			</image>
-			
-			<fill color="%linecolor%">
-				<condition var1="show_shadow" var2="2"/>
-				<placement x="0" y="%down_menu_y%" w="1080" h="2"/>
-			</fill>
-
 			<listbox style="settingslist">
-				<background color="%title_solid_bg%"/>
+				<background color="%cards_bg%"/>
 				<iconsize w="%col1_x_caption%" h="%bl_h1%" padding="25"/>
 				<placement x="0" y="%down_menu_y%" w="%screen_w%" h="%bl_h3%"/>
 				<listitem name="{@files_auto_open}">
@@ -38,7 +27,7 @@
 			</listbox>
 
 			<listbox style="btn_list">
-				<background color="%title_solid_bg%"/>
+				<background color="%cards_bg%"/>
 				<placement x="0" y="%down_menu_btn_y%" w="%screen_w%" h="%bl_h4%"/>
 				<listitem name="{@batch_title}">
 					<icon res="batch"/>

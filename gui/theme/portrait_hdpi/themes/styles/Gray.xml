@@ -121,7 +121,7 @@
 		<variable name="theme_style_act" value="Default"/>
 		
 		<variable name="status_solid_bg" value="#242528"/>
-		<variable name="title_solid_bg" value="#2A2B2E"/>
+		<variable name="cards_bg" value="#2A2B2E"/>
 
 		<variable name="keyboard_bg" value="#202124"/>
 		<variable name="keyboard_dark_bg" value="#242528"/>

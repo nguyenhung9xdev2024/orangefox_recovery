@@ -10,12 +10,6 @@
 		<image name="handle_h_classic" filename="DFox/Controls/handle_h_classic" retainaspect="1"/>
 		<image name="btn_raised_hl" filename="DFox/Controls/btn_raised_hl"/>
 		<image name="tab_hl" filename="DFox/Controls/tab"/>
-
-		<!-- Nav panel -->
-		<image name="nav_menu" filename="DFox/NavPanel/menu" retainaspect="1"/>
-		<image name="nav_wipe" filename="DFox/NavPanel/wipe" retainaspect="1"/>
-		<image name="nav_files" filename="DFox/NavPanel/files" retainaspect="1"/>
-		<image name="nav_backup" filename="DFox/NavPanel/backup" retainaspect="1"/>
 		
 		<!-- FAB -->
 		<image name="fab" filename="DFox/FAB/fab" retainaspect="1"/>

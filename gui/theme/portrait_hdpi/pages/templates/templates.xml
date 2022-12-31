@@ -928,22 +928,6 @@
 		<template name="checksum_base">
 			<background color="%background%"/>
 			<template name="keys"/>
-
-			<image>
-				<condition var1="show_shadow" var2="1"/>
-				<image resource="actionbar_shadow"/>
-				<placement x="0" y="%ab_ex_h%"/>
-			</image>
-			
-			<fill color="%linecolor%">
-				<condition var1="show_shadow" var2="2"/>
-				<placement x="0" y="%ab_ex_h%" w="1080" h="2"/>
-			</fill>
-			
-			<fill color="%title_solid_bg%">
-				<condition var1="darker_ui" var2="1"/>
-				<placement x="0" y="0" w="%screen_w%" h="%ab_ex_h%"/>
-			</fill>
 			
 			<template name="status_bg"/>
 			

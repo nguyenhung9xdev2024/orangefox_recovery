@@ -333,11 +333,6 @@
 		<page name="pass_select">
 			<template name="body"/>
 
-			<fill color="%title_solid_bg%">
-				<condition var1="darker_ui" var2="1"/>
-				<placement x="0" y="0" w="%screen_w%" h="%row4_1_y%"/>
-			</fill>
-
 			<template name="status_bg"/>
 			
 			<template name="actionbar_back"/>
@@ -396,17 +391,6 @@
 				<placement x="450" y="%row3_1a_y%"/>
 				<text>{@pass_page_block_inf2}</text>
 			</text>
-
-			<image>
-				<image resource="actionbar_shadow"/>
-				<condition var1="show_shadow" var2="1"/>
-				<placement x="0" y="%row4_1_y%"/>
-			</image>
-			
-			<fill color="%linecolor%">
-				<condition var1="show_shadow" var2="2"/>
-				<placement x="0" y="%row4_1_y%" w="1080" h="2"/>
-			</fill>
 
 			<text style="caption">
 				<placement x="%col1_x_caption%" y="%row4_2_y%"/>
@@ -974,17 +958,6 @@
 			<fill color="%background%">
 				<placement x="0" y="%row3_2_y%" w="%screen_w%" h="%spl_preview_bg%"/>
 			</fill>
-			
-			<image>
-				<condition var1="show_shadow" var2="1"/>
-				<placement x="0" y="%row3_2_y%" w="%screen_w%" h="%spl_preview_bg%" placement="2"/>
-				<image resource="nav_shadow"/>
-			</image>
-			
-			<fill color="%linecolor%">
-				<condition var1="show_shadow" var2="2"/>
-				<placement x="0" y="%row3_2_y%" w="1080" h="2"/>
-			</fill>
 
 			<template name="body"/>
 
@@ -1251,11 +1224,6 @@
 				<placement x="24" y="%tab_title_h%" w="1032" h="%credits_listbox_h%"/>
 				<read filename="/twres/changelog.txt"/>
 			</listbox>
-			
-			<fill color="%title_solid_bg%">
-				<condition var1="darker_ui" var2="1"/>
-				<placement x="0" y="0" w="%screen_w%" h="%tab_title_h%"/>
-			</fill>
 
 			<template name="status_bg"/>
 			<template name="actionbar_back"/>
@@ -1265,17 +1233,6 @@
 				<placement x="%col1_x_indent%" y="%ab_bc_y%"/>
 				<text>{@credits}</text>
 			</text>
-			
-			<image>
-				<image resource="actionbar_shadow"/>
-				<condition var1="show_shadow" var2="1"/>
-				<placement x="0" y="%tab_title_h%"/>
-			</image>
-
-			<fill color="%linecolor%">
-				<condition var1="show_shadow" var2="2"/>
-				<placement x="0" y="%tab_title_h%" w="1080" h="2"/>
-			</fill>
 			
 			<button style="tab_btn">
 				<condition var1="credits_page" op="!=" var2="0"/>

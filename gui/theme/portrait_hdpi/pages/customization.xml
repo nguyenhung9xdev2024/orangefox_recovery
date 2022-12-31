@@ -300,12 +300,6 @@
 					<data variable="hide_notch"/>
 					<condition var1="allow_hide_notch" var2="1"/>
 				</listitem>
-				<listitem name="{@separate_status}">
-					<data variable="separate_status"/>
-				</listitem>
-				<listitem name="{@dark_title}">
-					<data variable="darker_ui"/>
-				</listitem>
 				<listitem name="{@show_cpu_temp_bar}">
 					<data variable="show_cpu_temp"/>
 					<condition var1="center_clock" op="!=" var2="2"/>
@@ -331,14 +325,6 @@
 				<placement x="%col1_x_caption%" y="%row4_3a_y%"/>
 				<text>{@status_delimeter}</text>
 			</text>
-
-			<listbox>
-				<placement x="0" y="%row5_1a_y%" w="%screen_w%" h="%lb_l3%"/>
-				<data name="show_shadow"/>
-				<listitem name="{@fm_none}">0</listitem>
-				<listitem name="{@status_delimeter_shadow}">1</listitem>
-				<listitem name="{@navbar_style_line}">2</listitem>
-			</listbox>
 
 			<template name="gestures"/>
 
@@ -425,11 +411,6 @@
 		<!-- Lockscreen -->
 		<page name="ext_custom_lock">
 			<template name="body"/>
-			
-			<fill color="%title_solid_bg%">
-				<condition var1="darker_ui" var2="1"/>
-				<placement x="0" y="0" w="%screen_w%" h="%row4_1_y%"/>
-			</fill>
 
 			<template name="status_bg"/>
 			
@@ -464,17 +445,6 @@
 				<text>{@cpu_temp} | %tw_battery_charge%</text>
 			</text>
 			<!-- -->
-
-			<image>
-				<image resource="actionbar_shadow"/>
-				<condition var1="show_shadow" var2="1"/>
-				<placement x="0" y="%row4_1_y%"/>
-			</image>
-
-			<fill color="%linecolor%">
-				<condition var1="show_shadow" var2="2"/>
-				<placement x="0" y="%row4_1_y%" w="1080" h="2"/>
-			</fill>
 
 			<text style="caption">
 				<placement x="%col1_x_caption%" y="%row4_2_y%"/>
@@ -692,9 +662,6 @@
 				</listitem>
 				<listitem name="{@cust_autoapply}">
 					<data variable="instant_apply"/>
-				</listitem>
-				<listitem name="{@navpan_new_design}">
-					<data variable="new_nav_panel_des"/>
 				</listitem>
 			</listbox>
 

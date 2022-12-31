@@ -2,10 +2,10 @@
 <recovery>
 	<styles>
 		<style name="nav_panel">
-			<font resource="Secondary" color="%accent%"/>
+			<font resource="Secondary-navbar" color="%accent%"/>
 		</style>
 		<style name="nav_panel_d">
-			<font resource="Secondary" color="%color_disable%"/>
+			<font resource="Secondary-navbar" color="%text_action%"/>
 		</style>
 		
 		<style name="tab_btn">
@@ -235,7 +235,7 @@
 			<fastscroll rectcolor="%accent%" w="%fastscroll_w%" rectw="%fastscroll_rectw%" recth="%fastscroll_recth%" />
 			<background color="%background%" />
 			<exicon up="up_icon" link="link_icon" block="block_icon"  zip="zip_icon" img="img_icon" txt="txt_icon" png="png_icon" />
-			<iconsize w="216" h="168" padding="24" />
+			<iconsize w="216" h="168" padding="0" />
 			<font resource="body2" spacing="%fileselector_spacing%" color="%text%" />
 		</style>
 

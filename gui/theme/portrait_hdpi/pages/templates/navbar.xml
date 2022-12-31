@@ -2,7 +2,7 @@
 <recovery>
 	<templates>
 		<template name="gestures_line">
-			<fill color="#FFFFFF" rounded="1">
+			<fill color="#FFFFFF" radius="-1">
 				<condition var1="tw_busy" var2="0"/>
 				<condition var1="navbar_accent" var2="1"/>
 				<condition var1="navbar_bkg" op="&gt;=" var2="3"/>
@@ -10,14 +10,14 @@
 				<condition var1="real_gestures_enable" var2="1"/>
 				<placement x="435" y="%gst_line_y%" w="210" h="7" placement="4"/>
 			</fill>
-			<fill color="#FFFFFF" rounded="1">
+			<fill color="#FFFFFF" radius="-1">
 				<condition var1="tw_busy" var2="0"/>
 				<condition var1="navbar_accent" var2="1"/>
 				<condition var1="theme_style" op="!=" var2="Light"/>
 				<condition var1="real_gestures_enable" var2="1"/>
 				<placement x="435" y="%gst_line_y%" w="210" h="7" placement="4"/>
 			</fill>
-			<fill color="#5F6368" rounded="1">
+			<fill color="#5F6368" radius="-1">
 				<condition var1="tw_busy" var2="0"/>
 				<condition var1="navbar_accent" var2="1"/>
 				<condition var1="navbar_bkg" op="&lt;=" var2="2"/>
@@ -25,7 +25,7 @@
 				<condition var1="real_gestures_enable" var2="1"/>
 				<placement x="435" y="%gst_line_y%" w="210" h="7" placement="4"/>
 			</fill>
-			<fill color="%accent%" rounded="1">
+			<fill color="%accent%" radius="-1">
 				<condition var1="tw_busy" var2="0"/>
 				<condition var1="navbar_accent" var2="0"/>
 				<condition var1="real_gestures_enable" var2="1"/>
@@ -126,12 +126,6 @@
 			<fill color="#000000">
 				<condition var1="tw_busy" var2="0"/>
 				<condition var1="navbar_bkg" var2="4"/>
-				<placement x="0" y="%row_nav_y%" w="%screen_w%" h="%nav_h%"/>
-			</fill>
-
-			<fill color="%status_solid_bg%">
-				<condition var1="tw_busy" var2="0"/>
-				<condition var1="navbar_bkg" var2="1"/>
 				<placement x="0" y="%row_nav_y%" w="%screen_w%" h="%nav_h%"/>
 			</fill>
 

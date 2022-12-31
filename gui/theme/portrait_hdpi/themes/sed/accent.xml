@@ -10,12 +10,6 @@
 		<image name="handle_h_classic" filename="#ACCENT#/Controls/handle_h_classic" retainaspect="1"/>
 		<image name="btn_raised_hl" filename="#ACCENT#/Controls/btn_raised_hl"/>
 		<image name="tab_hl" filename="#ACCENT#/Controls/tab"/>
-
-		<!-- Nav panel -->
-		<image name="nav_menu" filename="#ACCENT#/NavPanel/menu" retainaspect="1"/>
-		<image name="nav_wipe" filename="#ACCENT#/NavPanel/wipe" retainaspect="1"/>
-		<image name="nav_files" filename="#ACCENT#/NavPanel/files" retainaspect="1"/>
-		<image name="nav_backup" filename="#ACCENT#/NavPanel/backup" retainaspect="1"/>
 		
 		<!-- FAB -->
 		<image name="fab" filename="#ACCENT#/FAB/fab" retainaspect="1"/>
