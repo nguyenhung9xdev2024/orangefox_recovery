@@ -48,6 +48,6 @@
 	</include>
 	<variables>
 		<variable name="magisk_ver" value="20.3"/>
-		<variable name="fox_theme_version" value="1.1"/>
+		<variable name="fox_theme_version" value="1.2"/>
 	</variables>
 </recovery>
