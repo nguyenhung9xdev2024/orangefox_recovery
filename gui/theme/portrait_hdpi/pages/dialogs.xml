@@ -3,7 +3,6 @@
 	<pages>
 		<page name="menu">
 			<background color="%background%"/>
-			<template name="navbar_bkg"/>
 			
 			<button>
 				<fill color="%background%"/>
@@ -60,7 +59,6 @@
 
 			<template name="keys"/>
 			<template name="statusbarinfo"/>
-			<template name="navbar_bkg_nobg"/>
 			<template name="navbar"/>
 			<template name="gestures"/>
 

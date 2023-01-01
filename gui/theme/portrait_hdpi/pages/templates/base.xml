@@ -95,10 +95,9 @@
 			<template name="ab_main"/>
 			<template name="base_nav_basic"/>
 			
-			<template name="navbar_bkg_nobg"/>
 			<template name="navbar_home"/>
 			<template name="navbar_console"/>
-			<template name="navbar_back_cls"/>
+			<template name="navbar_back_classic"/>
 		</template>
 
         <template name="base_nav_basic">
@@ -260,16 +259,14 @@
 			</button>
 
 			
-			<template name="navbar_bkg_nobg"/>
 			<template name="navbar_home"/>
 			<template name="navbar_console"/>
-			<template name="navbar_back_cls"/>
+			<template name="navbar_back_classic"/>
 		</template>
         
         <!-- Body (navbar+bg) -->
         <template name="body">
 			<background color="%background%"/>
-			<template name="navbar_bkg"/>
 			<template name="keys"/>
 			<template name="navbar"/>
 		</template>
@@ -283,7 +280,6 @@
 			<background color="%background%"/>
 			<template name="keys"/>
 			<template name="keyboardtemplate"/>
-			<!-- <template name="navbar_bkg"/> -->
 			<template name="navbar_home"/>
 			<template name="navbar_console"/>
 			<template name="navbar_key"/>
@@ -293,7 +289,6 @@
 			<background color="%background%"/>
 			<template name="keys"/>
 			<template name="keyboardnum"/>
-			<!-- <template name="navbar_bkg"/> -->
 			<template name="navbar_home"/>
 			<template name="navbar_console"/>
 			<template name="navbar_key"/>
@@ -301,8 +296,7 @@
 		
 		<template name="dialog_body">
 			<background color="%transparent%"/>
-			<template name="navbar_bkg"/>
-			
+
 			<button>
 				<fill color="%darktransparent%"/>
 				<placement x="0" y="0" w="%screen_w%" h="%screen_h%"/>

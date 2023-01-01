@@ -44,7 +44,6 @@
 			<template name="body_nav"/>
 			<template name="ab_main"/>
 			<template name="base_nav_basic"/>
-			<template name="navbar_bkg_nobg"/>
 
 			<text style="text_ab_subtitle">
 				<placement x="%center_x%" y="%ab_bc_double_d_y%" placement="5"/>
@@ -192,7 +191,7 @@
 
 			<template name="navbar_home"/>
 			<template name="navbar_console"/>
-			<template name="navbar_back_cls"/>
+			<template name="navbar_back_classic"/>
 			<template name="navbar_back_restore"/>
 			<template name="gestures_basic"/>
 

@@ -10,10 +10,9 @@
 			<template name="body_nav"/>
 			<template name="base_nav_basic"/>
 			
-			<template name="navbar_bkg_nobg"/>
 			<template name="navbar_home"/>
 			<template name="navbar_console"/>
-			<template name="navbar_back_cls"/>
+			<template name="navbar_back_classic"/>
 			<template name="tabs"/>
 			
 			<button style="tab_btn_hl">

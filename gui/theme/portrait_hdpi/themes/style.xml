@@ -71,6 +71,16 @@
 		<image name="fab_usb" filename="Light/FAB/usb" retainaspect="1"/>
 		<image name="fab_credits" filename="Light/FAB/credits" retainaspect="1"/>
 		
+		<!-- NavBar -->
+		<image name="nb_slideout" filename="Light/NavBar/slideout" retainaspect="1"/>
+		<image name="nb_slideout_pie" filename="Light/NavBar/slideout_pie" retainaspect="1"/>
+		<image name="nb_home" filename="Light/NavBar/home" retainaspect="1"/>
+		<image name="nb_home_pie" filename="Light/NavBar/home_pie" retainaspect="1"/>
+		<image name="nb_back" filename="Light/NavBar/back" retainaspect="1"/>
+		<image name="nb_back_pie" filename="Light/NavBar/back_pie" retainaspect="1"/>
+		<image name="nb_hide" filename="Light/NavBar/hide" retainaspect="1"/>
+		<image name="nb_hide_pie" filename="Light/NavBar/hide_pie" retainaspect="1"/>
+
 		<!-- File Manager -->
 		<image name="folder_icon" filename="Light/FileManager/folder" retainaspect="1"/>
 		<image name="folder_icon_small" filename="Light/FileManager/folder_small" retainaspect="1"/>
@@ -102,10 +112,11 @@
 	<variables>
 		<variable name="background" value="#F6EFE9"/>
 		
+		<variable name="cards_bg" value="#FFF8F2"/> <!--FFF8F2-->
 		<variable name="power_hl" value="#E9E9E944"/>
 		<variable name="power_bg" value="#F6EFE9"/>
 		<variable name="highlight_color" value="#F6EFE966"/>
-		<variable name="highlight_color_full" value="#E9E9E944"/>
+		<variable name="highlight_color_full" value="%cards_bg%"/>
 		<variable name="text" value="#202124"/>
 		<variable name="text_action" value="#202124"/>
 		<variable name="text_status" value="#5F6368"/>
@@ -117,11 +128,7 @@
 		<variable name="theme_style" value="Light"/>
 		<variable name="theme_style_act" value="Black"/>
 		
-		<variable name="status_solid_bg" value="#F0F0F0"/>
-		<variable name="cards_bg" value="#FFF8F2"/> <!--FFF8F2-->
-		
 		<variable name="keyboard_bg" value="#E8EAED"/>
-		<variable name="keyboard_dark_bg" value="#DBDDE0"/>
 		<variable name="keyboard_hl" value="#E8EAED66"/>
 	</variables>
 </recovery>

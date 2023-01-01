@@ -43,11 +43,9 @@
 			<template name="body_nav"/>
 			<template name="base_nav_basic"/>
 
-			
-			<template name="navbar_bkg_nobg"/>
 			<template name="navbar_home"/>
 			<template name="navbar_console"/>
-			<template name="navbar_back_cls"/>
+			<template name="navbar_back_classic"/>
 			
 			<fill color="%cards_bg%" radius="32">
 				<placement x="48" y="%search_bar_bg_y%" w="984" h="260"/>
@@ -166,25 +164,6 @@
 				<action function="page">files_redirect</action>
 			</action>
 			
-			<!-- Quick Actions menu -->
-			<!--image>
-				<condition var1="theme_pie" var2="1"/>
-				<placement x="600" y="%ab_y%" placement="4"/>
-				<image resource="back_key_pie"/>
-			</image>
-			<image>
-				<condition var1="theme_pie" op="!=" var2="1"/>
-				<condition var1="theme_style" op="!=" var2="Light"/>
-				<placement x="600" y="%ab_y%" placement="4"/>
-				<image resource="back_white_key_pie"/>
-			</image>
-			<image>
-				<condition var1="theme_pie" op="!=" var2="1"/>
-				<condition var1="theme_style" var2="Light"/>
-				<placement x="600" y="%ab_y%" placement="4"/>
-				<image resource="quick_arrow_black"/>
-			</image-->
-
 			<template name="navbar_back_fm"/>
 
 			<template name="gestures"/>
@@ -1160,7 +1139,6 @@
 		
 		<page name="fm_file_checksum">
 			<template name="checksum_base"/>
-			<template name="navbar_bkg"/>
 			<template name="navbar"/>
 			<template name="actionbar_back"/>
 			

@@ -201,7 +201,6 @@
 			<template name="body_ct"/>
 			<template name="keyboardtemplate"/>
 			<template name="decrypt_page"/>
-			<!-- <template name="navbar_bkg"/> -->
 
 			<listbox style="btn_list">
 				<placement x="0" y="%row3_3a_y%" w="%screen_w%" h="%bl_h1%"/>
@@ -222,7 +221,6 @@
 			<template name="body_ct"/>
 			<template name="keyboardnum"/>
 			<template name="decrypt_page"/>
-			<!-- <template name="navbar_bkg"/> -->
 
 			<listbox style="btn_list">
 				<condition var1="tw_crypto_pwtype" op="!=" var2="3"/>

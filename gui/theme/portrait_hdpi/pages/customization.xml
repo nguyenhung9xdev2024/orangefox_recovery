@@ -555,28 +555,9 @@
 			<listbox>
 				<placement x="0" y="%row2_1a_y%" w="%screen_w%" h="%lb_l3%"/>
 				<condition var1="navbar_disable_tmp" op="!=" var2="1"/>
-				<data name="nougat"/>
-				<listitem name="{@cust_navbar_cls}">0</listitem>
-				<listitem name="{@cust_navbar_noug}">1</listitem>
-				<listitem name="Pie">3</listitem>
-			</listbox>
-
-			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row4_1_y%"/>
-				<condition var1="navbar_disable_tmp" op="!=" var2="1"/>
-				<text>{@settings_ui_color}</text>
-			</text>
-
-			<listbox>
-				<placement x="0" y="%row4_2_y%" w="%screen_w%" h="%lb_l5%"/>
-				<condition var1="navbar_disable_tmp" op="!=" var2="1"/>
-				<data name="navbar_bkg"/>
-				<listitem name="{@fm_none}">0</listitem>
-				<listitem name="{@dark_nav}">1</listitem>
-				<listitem name="{@navbar_style_line}">2</listitem>
-				<listitem name="{@cust_navbar_accent}">3</listitem>
-				<listitem name="{@cust_navbar_black}">4<condition var1="theme_style_tmp" op="!=" var2="Black"/>
-				</listitem>
+				<data name="navbar_style"/>
+				<listitem name="{@cust_navbar_noug}">0</listitem>
+				<listitem name="Pie">1</listitem>
 			</listbox>
 
 			<text style="caption">
@@ -587,36 +568,19 @@
 
 			<listbox style="settingslist">
 				<placement x="0" y="%row7_2a_y%" w="%screen_w%" h="%lb_l3%"/>
-				<listitem name="{@cust_navbar_white}">
-					<condition var1="navbar_bkg" op="!=" var2="3"/>
-					<condition var1="theme_style" op="!=" var2="Light"/>
-					<condition var1="navbar_disable_tmp" op="!=" var2="1"/>
-					<data variable="navbar_accent"/>
-				</listitem>
-				<listitem name="{@cust_navbar_gray}">
-					<condition var1="navbar_bkg" op="!=" var2="3"/>
-					<condition var1="theme_style" var2="Light"/>
-					<condition var1="navbar_disable_tmp" op="!=" var2="1"/>
-					<data variable="navbar_accent"/>
-				</listitem>
 				<listitem name="{@rev_navbar_chk}">
 					<data variable="navbar_sams"/>
 					<condition var1="navbar_disable_tmp" op="!=" var2="1"/>
 				</listitem>
 				<listitem name="{@show_slideout}">
-					<condition var1="nougat" var2="3"/>
+					<condition var1="navbar_style" var2="1"/>
 					<condition var1="navbar_disable_tmp" op="!=" var2="1"/>
 					<data variable="show_slideout"/>
 				</listitem>
 			</listbox>
 
 			<action>
-				<condition var1="navbar_bkg" var2="3"/>
-				<condition var1="navbar_accent" var2="0"/>
-				<action function="set">navbar_accent=1</action>
-			</action>
-			<action>
-				<condition var1="nougat" op="!=" var2="3"/>
+				<condition var1="navbar_style" op="!=" var2="1"/>
 				<condition var1="show_slideout" var2="0"/>
 				<action function="set">show_slideout=1</action>
 			</action>
@@ -704,48 +668,6 @@
 				<text>{@gst_navbar_error_2}</text>
 			</text>
 
-			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row2_1_y%"/>
-				<text>{@settings_ui_color}</text>
-			</text>
-
-			<listbox>
-				<placement x="0" y="%row2_2_y%" w="%screen_w%" h="%lb_l5%"/>
-				<data name="navbar_bkg"/>
-				<listitem name="{@fm_none}">0</listitem>
-				<listitem name="{@dark_nav}">1</listitem>
-				<listitem name="{@navbar_style_line}">2</listitem>
-				<listitem name="{@cust_navbar_accent}">3</listitem>
-				<listitem name="{@cust_navbar_black}">4<condition var1="theme_style_tmp" op="!=" var2="Black"/>
-				</listitem>
-			</listbox>
-
-			<text style="caption">
-				<condition var1="navbar_bkg" op="!=" var2="3"/>
-				<placement x="%col1_x_caption%" y="%row5_1a_y%"/>
-				<text>{@cust_oth}</text>
-			</text>
-
-			<listbox style="settingslist">
-				<placement x="0" y="%row5_2a_y%" w="%screen_w%" h="%lb_l1%"/>
-				<listitem name="{@cust_line_white}">
-					<condition var1="theme_style" op="!=" var2="Light"/>
-					<data variable="navbar_accent"/>
-					<condition var1="navbar_bkg" op="!=" var2="3"/>
-				</listitem>
-				<listitem name="{@cust_line_gray}">
-					<condition var1="theme_style" var2="Light"/>
-					<data variable="navbar_accent"/>
-					<condition var1="navbar_bkg" op="!=" var2="3"/>
-				</listitem>
-			</listbox>
-
-			<action>
-				<condition var1="navbar_bkg" var2="3"/>
-				<condition var1="navbar_accent" var2="0"/>
-				<action function="set">navbar_accent=1</action>
-			</action>
-
 			<template name="gestures"/>
 
 			<action>
@@ -774,26 +696,9 @@
 
 			<listbox>
 				<placement x="0" y="%row1_2_y%" w="%screen_w%" h="%lb_l3%"/>
-				<data name="nougat"/>
-				<listitem name="{@cust_navbar_cls}">0</listitem>
-				<listitem name="{@cust_navbar_noug}">1</listitem>
-				<listitem name="Pie">3</listitem>
-			</listbox>
-
-			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row3_1a_y%"/>
-				<text>{@settings_ui_color}</text>
-			</text>
-
-			<listbox>
-				<placement x="0" y="%row3_2a_y%" w="%screen_w%" h="%lb_l5%"/>
-				<data name="navbar_bkg"/>
-				<listitem name="{@fm_none}">0</listitem>
-				<listitem name="{@dark_nav}">1</listitem>
-				<listitem name="{@navbar_style_line}">2</listitem>
-				<listitem name="{@cust_navbar_accent}">3</listitem>
-				<listitem name="{@cust_navbar_black}">4<condition var1="theme_style_tmp" op="!=" var2="Black"/>
-				</listitem>
+				<data name="navbar_style"/>
+				<listitem name="{@cust_navbar_noug}">0</listitem>
+				<listitem name="Pie">1</listitem>
 			</listbox>
 
 			<text style="caption">
@@ -803,33 +708,17 @@
 
 			<listbox style="settingslist">
 				<placement x="0" y="%row6_3_y%" w="%screen_w%" h="%lb_l3%"/>
-				<listitem name="{@cust_navbar_white}">
-					<condition var1="navbar_bkg" op="!=" var2="3"/>
-					<condition var1="theme_style" op="!=" var2="Light"/>
-					<data variable="navbar_accent"/>
-				</listitem>
-				<listitem name="{@cust_navbar_gray}">
-					<condition var1="navbar_bkg" op="!=" var2="3"/>
-					<condition var1="theme_style" var2="Light"/>
-					<data variable="navbar_accent"/>
-				</listitem>
 				<listitem name="{@rev_navbar_chk}">
 					<data variable="navbar_sams"/>
 				</listitem>
 				<listitem name="{@show_slideout}">
-					<condition var1="nougat" var2="3"/>
+					<condition var1="navbar_style" var2="1"/>
 					<data variable="show_slideout"/>
 				</listitem>
 			</listbox>
 
 			<action>
-				<condition var1="navbar_bkg" var2="3"/>
-				<condition var1="navbar_accent" var2="0"/>
-				<action function="set">navbar_accent=1</action>
-			</action>
-
-			<action>
-				<condition var1="nougat" op="!=" var2="3"/>
+				<condition var1="navbar_style" op="!=" var2="1"/>
 				<condition var1="show_slideout" var2="0"/>
 				<action function="set">show_slideout=1</action>
 			</action>

@@ -234,7 +234,6 @@
 				<action function="page">backup_run</action>
 			</slider>
 
-			<template name="navbar_bkg"/>
 			<button>
 				<condition var1="of_show_storage_selection" var2="1"/>
 				<fill color="%darktransparent%"/>

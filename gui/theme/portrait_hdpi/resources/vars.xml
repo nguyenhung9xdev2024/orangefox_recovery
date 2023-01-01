@@ -54,15 +54,13 @@
 		
 		<!-- Design -->
 		<variable name="enable_battery" value="1" persist="1"/>
-		<variable name="navbar_bkg" value="1" persist="1"/>
-		<variable name="nougat" value="3" persist="1"/>
+		<variable name="navbar_style" value="1" persist="1"/>
 		<variable name="key_buttons" value="1" persist="1"/>
 		<variable name="key_numbar" value="0" persist="1"/>
 		<variable name="use_fixed_font" value="1" persist="1"/>
 		<variable name="show_cpu_temp" value="1" persist="1"/>
 		<variable name="list_font" value="0" persist="1"/>
 		<variable name="navbar_sams" value="0" persist="1"/>
-		<variable name="navbar_accent" value="1" persist="1"/>
 		<variable name="show_slideout" value="1" persist="1"/>
 		<variable name="style_battery" value="0" persist="1"/>
 		<variable name="hide_notch" value="0" persist="1"/> 
@@ -337,6 +335,7 @@
 		<!-- NavBar -->
 		<variable name="row_nav_text_y" value="%row_nav_y%+%bs_text_offset%"/>
 		<variable name="row_nav_y" value="%screen_h%-144"/>
+		<variable name="row_navbtn_w" value="318"/>
 		<variable name="row_navbtn_y" value="%screen_h%-72"/>
 		<variable name="back_button_x" value="237"/>
 		<variable name="slideout_button_x" value="843"/>

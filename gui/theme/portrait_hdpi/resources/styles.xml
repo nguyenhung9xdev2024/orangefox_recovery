@@ -11,6 +11,11 @@
 			<highlight color="%highlight_color%" />
 			<fill color="%transparent%"/>
 		</style>
+
+		<style name="nb_btn">
+			<highlight color="%highlight_color%" />
+			<fill color="%transparent%"/>
+		</style>
 		
 		<style name="tab_btn">
 			<fill color="%transparent%"/>
