@@ -478,6 +478,7 @@ protected:
 	GUIAction* mAction;
 	int mTextX, mTextY, mTextW, mTextH;
 	int mIconX, mIconY, mIconW, mIconH;
+	int mFillW, mFillH;
 	bool mRendered;
 	bool hasHighlightColor;
 	bool renderHighlight;
@@ -485,6 +486,12 @@ protected:
 	COLOR mFillColor;
 	COLOR mHighlightColor;
 	Placement TextPlacement;
+	Placement mPlacement;
+	gr_surface mCircle1;
+	gr_surface mCircle2;
+	gr_surface mCircle3;
+	gr_surface mCircle4;
+	int mRadius;
 };
 
 class GUIGesture : public GUIObject, public RenderObject, public ActionObject
