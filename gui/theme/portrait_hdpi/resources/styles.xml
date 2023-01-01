@@ -7,6 +7,10 @@
 		<style name="nav_panel_d">
 			<font resource="Secondary-navbar" color="%text_action%"/>
 		</style>
+		<style name="nav_panel_btn">
+			<highlight color="%highlight_color%" />
+			<fill color="%transparent%"/>
+		</style>
 		
 		<style name="tab_btn">
 			<fill color="%transparent%"/>
@@ -16,10 +20,6 @@
 		<style name="tab_btn_hl">
 			<fill color="%transparent%"/>
 			<font resource="Secondary" color="%accent%"/>
-		</style>
-		
-		<style name="tab">
-			<image resource="tab_hl"/>
 		</style>
 
 		<style name="text_ab_title">
@@ -128,25 +128,25 @@
 		<style name="btn_raised">
 			<highlight color="%highlight_color%"/>
 			<font resource="Secondary" color="%accent%"/>
-			<image resource="btn_raised"/>
+			<fill color="#2F3133" radius="-1" />
 		</style>
 
 		<style name="btn_raised_warn">
 			<highlight color="%highlight_color%"/>
 			<font resource="Secondary" color="#FFFFFF"/>
-			<image resource="btn_raised_warn"/>
+			<fill color="#E51C23" radius="-1" />
 		</style>
 
 		<style name="btn_raised_hl">
 			<highlight color="%highlight_color%"/>
 			<font resource="Secondary" color="%text_hl_btn%"/>
-			<image resource="btn_raised_hl"/>
+			<fill color="%accent%" radius="-1" />
 		</style>
 
 		<style name="btn_flat_qw">
 			<highlight color="%highlight_color%"/>
 			<font resource="Secondary" color="%accent%"/>
-			<image resource="btn_flat_qw"/>
+			<fill color="#E51C23" radius="-1" />
 		</style>
 
 		<style name="btn_dlg">
@@ -263,7 +263,9 @@
 			<font resource="body1"/>
 		</style>	
 		<style name="floating_btn">
-			<image resource="fab" highlightresource="fab_hl"/>
+			<highlight color="%highlight_color%"/>
+			<image resource="fab_shadow"/>
+			<fill color="%accent%" radius="24" />
 		</style>	
 		<style name="input">
 			<background color="%background%"/>
@@ -278,7 +280,7 @@
 		</style>
 
 		<style name="power_card">
-			<image resource="power_card"/>
+			<fill color="%cards_bg%" radius="32" />
 		</style>
 		<style name="actionbar">
 			<image resource="actionbar_btn" highlightresource="actionbar_btn_hl"/>

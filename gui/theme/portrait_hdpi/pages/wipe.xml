@@ -27,9 +27,9 @@
 				<action function="page">formatdata</action>
 			</button>
 			
-			<image style="tab">
-				<placement x="180" y="%tab_title_h%" placement="2"/>
-			</image>
+			<fill color="%accent%" radius="-1">
+				<placement x="180" y="%tab_title_h%" w="%tab_w%" h="%tab_h%" placement="2"/>
+			</fill>
 
 			<text style="text_ab_title">
 				<placement x="%center_x%" y="%ab_bc_y%" placement="5"/>
@@ -104,9 +104,9 @@
 				<text>{@format_data_hdr}</text>
 			</button>
 			
-			<image style="tab">
-				<placement x="588" y="%tab_title_h%" placement="2"/>
-			</image>
+			<fill color="%accent%" radius="-1">
+				<placement x="588" y="%tab_title_h%" w="%tab_w%" h="%tab_h%" placement="2"/>
+			</fill>
 
 			<text style="text_ab_title">
 				<placement x="%center_x%" y="%ab_bc_y%" placement="5"/>
@@ -442,14 +442,14 @@
 				<button style="btn_raised">
 					<condition var1="tw_partition_removable" var2="1"/>
 					<condition var1="tw_allow_partition_sdcard" var2="1"/>
-					<placement x="%btn_raised_right_x%" y="%row_btn_y%" placement="1"/>
+					<placement x="%btn_raised_right_x%" y="%row_btn_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 					<text>{@part_sd_hdr}</text>
 					<action function="page">partsdcard</action>
 				</button>
 
 				<button style="btn_raised">
 					<condition var1="tw_partition_can_resize" var2="1"/>
-					<placement x="%btn_raised_left_x%" y="%row_btn_y%"/>
+					<placement x="%btn_raised_left_x%" y="%row_btn_y%" w="%btn_w%" h="%btn_h%"/>
 					<text>{@resize_btn}</text>
 					<action function="set">tw_back=partitionoptions</action>
 					<action function="set">tw_action=resize</action>
@@ -475,7 +475,7 @@
 
 				<button style="btn_raised">
 					<condition var1="tw_partition_can_repair" var2="1"/>
-					<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
+					<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%"/>
 					<text>{@repair_btn}</text>
 					<action function="set">tw_back=partitionoptions</action>
 					<action function="set">tw_action=repair</action>
@@ -491,7 +491,7 @@
 				</button>
 
 				<button style="btn_raised_hl">
-					<placement x="%btn_raised_right_x%" y="%row_btn1_y%" placement="1"/>
+					<placement x="%btn_raised_right_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 					<text>{@change_fs_btn}</text>
 					<action function="page">selectfilesystem</action>
 				</button>
@@ -634,26 +634,15 @@
 					<data name="part_option"/>
 					<listtype name="part_option"/>
 				</partitionlist>
-			
-				<image>
-					<condition var1="part_option"/>
-					<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
-					<image resource="fab_shadow"/>
-				</image>
 
 				<button style="floating_btn">
 					<condition var1="part_option"/>
-					<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+					<placement x="%btn_float_x%" y="%btn_float_y%" w="%btn_float_size%" h="%btn_float_size%" placement="4"/>
+					<icon resource="fab_accept"/>
 					<action function="set">part_option_c=%part_option%;</action>
 					<action function="checkpartitionlist">part_option_c</action>
 					<action function="page">checkpartitionlist</action>
 				</button>
-				
-				<image>
-					<condition var1="part_option"/>
-					<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
-					<image resource="fab_accept"/>
-				</image>
 
 				<template name="gestures"/>
 

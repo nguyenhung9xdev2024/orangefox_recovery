@@ -121,6 +121,7 @@
 		<variable name="ota_update_log_y" value="%center_y%+600"/>
 		
 		<!-- FAB above NavPanel -->
+		<variable name="btn_float_size" value="168"/>
 		<variable name="btn_float_x" value="948"/>
 		<variable name="btn_float_y" value="%screen_h%-294"/>
 		<variable name="btn_float_nav_y" value="%screen_h%-444"/>
@@ -138,7 +139,7 @@
 		<variable name="nav_panel_y" value="%screen_h%-360"/>
 		<variable name="nav_icon_y" value="%screen_h%-282"/>
 		<variable name="nav_text_y" value="%screen_h%-202"/>
-		<variable name="nav_item_y" value="%screen_h%-228"/>
+		<variable name="nav_item_y" value="%screen_h%-252"/>
 		<variable name="nav_item_1" value="171"/>
 		<variable name="nav_item_2" value="417"/>
 		<variable name="nav_item_3" value="663"/>
@@ -408,6 +409,9 @@
 		<variable name="row_ab_ex_y" value="456+%cutout_w%"/>
 		<variable name="ab_btn_h" value="168"/>
 		
+		<variable name="tab_w" value="312"/>
+		<variable name="tab_h" value="8"/>
+		
 		<!-- Sort menu -->
 		<variable name="ab_menu_y" value="72+%cutout_w%"/>
 		<variable name="ab_menu_x" value="972"/>
@@ -447,6 +451,9 @@
 		<variable name="row_btn3_y" value="%screen_h%-729"/>
 		<variable name="btn_raised_left_x" value="48"/>
 		<variable name="btn_raised_right_x" value="1032"/>
+		<variable name="btn_w" value="471"/>
+		<variable name="btn_half_w" value="207"/>
+		<variable name="btn_h" value="108"/>
 		
 		<!-- Progress -->
 		<variable name="progressbar_x" value="0"/>

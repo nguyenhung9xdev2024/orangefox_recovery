@@ -70,7 +70,7 @@
 
 			<button style="btn_raised_hl">
 				<condition var1="lock_btn" var2="1"/>
-				<placement x="%center_x%" y="%slider_y%" placement="4"/>
+				<placement x="%center_x%" y="%slider_y%" w="%btn_w%" h="%btn_h%" placement="4"/>
 				<text>{@lockscreen_unlock}</text>
 				<action function="overlay"/>
 			</button>

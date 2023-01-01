@@ -203,13 +203,13 @@
 			</text>
 
 			<button style="btn_raised">
-				<placement x="%btn_raised_left_x%" y="%row_btn2_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@bkp_clear}</text>
 				<action function="set">tw_backup_list=</action>
 			</button>
 
 			<button style="btn_raised_hl">
-				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 				<text>{@bkp_quick}</text>
 				<action function="set">tw_backup_list=%tw_backup_list_quick%</action>
 			</button>
@@ -691,14 +691,14 @@
 
 			<button style="btn_raised">
 				<condition var1="fox_show_digest_btn" op="!=" var2="1"/>
-				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@back_btn}</text>
 				<action function="page">main</action>
 			</button>
 
 			<button style="btn_raised">
 				<condition var1="fox_show_digest_btn" var2="1"/>
-				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@digest_btn}</text>
 				<action function="disableled"/>
 				<action function="page">backup_digest</action>

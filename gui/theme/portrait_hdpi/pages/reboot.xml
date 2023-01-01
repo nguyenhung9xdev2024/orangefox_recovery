@@ -88,7 +88,7 @@
 			<button style="power_card">
 				<condition var1="tw_busy" op="!=" var2="1"/>
 				<condition var1="tw_reboot_poweroff" var2="1"/>
-				<placement x="42" y="%pc_y%" />
+				<placement x="42" y="%pc_y%" w="324" h="294" />
 				<action function="set">tw_action_param=poweroff</action>
 				<action function="page">rebootcheckoverlay</action>
 			</button>
@@ -108,7 +108,7 @@
 			<button style="power_card">
 				<condition var1="tw_busy" op="!=" var2="1"/>
 				<condition var1="tw_reboot_system" var2="1"/>
-				<placement x="378" y="%pc_y%" />
+				<placement x="378" y="%pc_y%" w="324" h="294" />
 				<action function="set">tw_action_param=system</action>
 				<action function="page">rebootcheckoverlay</action>
 			</button>
@@ -128,7 +128,7 @@
 			<button style="power_card">
 				<condition var1="tw_busy" op="!=" var2="1"/>
 				<condition var1="tw_reboot_recovery" var2="1"/>
-				<placement x="714" y="%pc_y%" />
+				<placement x="714" y="%pc_y%" w="324" h="294" />
 				<action function="set">tw_action_param=recovery</action>
 				<action function="page">rebootcheckoverlay</action>
 			</button>

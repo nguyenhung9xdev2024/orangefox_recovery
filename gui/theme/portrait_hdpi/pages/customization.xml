@@ -896,9 +896,9 @@
 				<action function="page">ext_custom_fonts_size</action>
 			</button>
 			
-			<image style="tab">
-				<placement x="24" y="%tab_title_h%" placement="2"/>
-			</image>
+			<fill color="%accent%" radius="-1">
+				<placement x="24" y="%tab_title_h%" w="%tab_w%" h="%tab_h%" placement="2"/>
+			</fill>
 			
 			<text style="caption">
 				<placement x="%col1_x_caption%" y="%row1_3_y%" />
@@ -1020,9 +1020,9 @@
 				<action function="page">ext_custom_fonts_size</action>
 			</button>
 
-			<image style="tab">
-				<placement x="384" y="%tab_title_h%" placement="2"/>
-			</image>
+			<fill color="%accent%" radius="-1">
+				<placement x="384" y="%tab_title_h%" w="%tab_w%" h="%tab_h%" placement="2"/>
+			</fill>
 			
 			<text style="caption">
 				<placement x="%col1_x_caption%" y="%row1_3_y%" />
@@ -1144,9 +1144,9 @@
 				<text>{@theme_font_size_tab}</text>
 			</button>
 
-			<image style="tab">
-				<placement x="744" y="%tab_title_h%" placement="2"/>
-			</image>
+			<fill color="%accent%" radius="-1">
+				<placement x="744" y="%tab_title_h%" w="%tab_w%" h="%tab_h%" placement="2"/>
+			</fill>
 			
             <text style="caption">
 				<placement x="%col1_x_caption%" y="%row1_3_y%" />
@@ -1698,20 +1698,11 @@
 				</listitem>
 			</listbox>
 
-			<image>
-				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
-				<image resource="fab_shadow"/>
-			</image>
-
 			<button style="floating_btn">
-				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" w="%btn_float_size%" h="%btn_float_size%" placement="4"/>
+				<icon resource="fab_accept"/>
 				<action function="overlay">apply_splash</action>
 			</button>
-			
-			<image>
-				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
-				<image resource="fab_accept"/>
-			</image>
 
 			<action>
 				<condition var1="spl_bg_on" var2="0"/>

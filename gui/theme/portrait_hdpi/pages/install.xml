@@ -83,7 +83,7 @@
 				<condition var1="fileexists" var2="%fox_home_files%/%fox_magisk_zip_installer%"/>
 				<condition var1="of_magisk_in_queue" var2="0"/>
 				<condition var1="tw_zip_queue_count" var2="1"/>
-				<placement x="%btn_raised_left_x%" y="%row_btn2_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@install_queue_magisk_btn}</text>
 				<action function="set">tw_file=%fox_magisk_zip_installer%</action>
 				<action function="set">tw_filename=%fox_home_files%/%fox_magisk_zip_installer%</action>
@@ -96,7 +96,7 @@
 				<condition var1="fileexists" var2="%fox_home_files%/%fox_magisk_zip_installer%"/>
 				<condition var1="of_magisk_in_queue" var2="0"/>
 				<condition var1="tw_zip_queue_count" op="&gt;=" var2="2"/>
-				<placement x="%btn_raised_left_x%" y="%row_btn3_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn3_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@install_queue_magisk_btn}</text>
 				<action function="set">tw_file=%fox_magisk_zip_installer%</action>
 				<action function="set">tw_filename=%fox_home_files%/%fox_magisk_zip_installer%</action>
@@ -106,7 +106,7 @@
 			</button>
 
 			<button style="btn_raised">
-				<placement x="%btn_raised_left_x%" y="%row_btn2_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@raised_viewqueue_btn}</text>
 				<condition var1="tw_zip_queue_count" op="&gt;=" var2="2"/>
 				<action function="page">queueview</action>
@@ -114,7 +114,7 @@
 
 			<button style="btn_raised_hl">
 				<condition var1="tw_zip_queue_count" op="&lt;" var2="10"/>
-				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 				<text>{@zip_add_queue}</text>
 				<action function="set">tw_zip_location_tmp=%tw_file_location1%</action>
 				<action function="set">location_input_tmp=%tw_file_location1%</action>
@@ -124,7 +124,7 @@
 
 			<button style="btn_raised_hl">
 				<condition var1="tw_zip_queue_count" op="&gt;=" var2="10"/>
-				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 				<text>{@raised_clearqueue_btn}</text>
 				<action function="queueclear"/>
 				<action function="page">%install_back%</action>
@@ -425,7 +425,7 @@
 			</text>
 
 			<button style="btn_raised">
-				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@raised_clearqueue_btn}</text>
 				<action function="queueclear"/>
 				<action function="page">%install_back%</action>
@@ -433,14 +433,14 @@
 
 			<button style="btn_raised_hl">
 				<condition var1="tw_zip_queue_count" op="&gt;" var2="2"/>
-				<placement x="%btn_raised_right_x%" y="%row_btn1_y%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 				<text>{@install_remlatest}</text>
 				<action function="cancelzip"/>
 			</button>
 
 			<button style="btn_raised_hl">
 				<condition var1="tw_zip_queue_count" op="&lt;=" var2="2"/>
-				<placement x="%btn_raised_right_x%" y="%row_btn1_y%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 				<text>{@install_remlatest}</text>
 				<action function="cancelzip"/>
 				<action function="page">flash_confirm</action>
@@ -494,7 +494,7 @@
 			</listbox>
 
 			<button style="btn_raised_hl">
-				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 				<text>{@img_advanced}</text>
 				<condition var1="tw_has_boot_slots" var2="1"/>
 				<condition var1="tw_has_repack_tools" var2="1"/>
@@ -541,7 +541,7 @@
 			</listbox>
 
 			<button style="btn_raised">
-				<placement x="%btn_raised_left_x%" y="%row_btn2_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@back_btn}</text>
 				<action function="page">flash_image_confirm</action>
 			</button>
@@ -698,7 +698,7 @@
 			</text>
 
 			<button style="btn_raised">
-				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@wipe_cache_btn}</text>
 				<action function="disableled"/>
 				<action function="set">tw_back=flash_done</action>
@@ -799,7 +799,7 @@
 
 			<button style="btn_raised">
 				<condition var1="tw_reboot_recovery" var2="1"/>
-				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%"/>
 				<text>{@reboot_recovery_btn}</text>
 				<action function="set">tw_back=main</action>
 				<action function="set">tw_action_param=recovery</action>

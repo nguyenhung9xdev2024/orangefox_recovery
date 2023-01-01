@@ -497,7 +497,7 @@
 			</text>
 			
 			<button style="btn_raised_hl">
-				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn2_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
 				<text>{@sys_ro_keep_ro_btn}</text>
 				<action function="key">back</action>
 			</button>

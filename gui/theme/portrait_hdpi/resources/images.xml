@@ -13,9 +13,6 @@
 		<image name="nav_wipe_d" filename="Default/NavPanel/wipe_d" retainaspect="1"/>
 		<image name="nav_files_d" filename="Default/NavPanel/files_d" retainaspect="1"/>
 		<image name="nav_backup_d" filename="Default/NavPanel/backup_d" retainaspect="1"/>
-		<image name="nav_empty" filename="Default/NavPanel/empty"/>
-		<image name="nav_hl" filename="Default/NavPanel/hl"/>
-		<image name="nav_shadow" filename="Default/NavPanel/shadow" retainaspect="1"/>
 		
 		<image name="actionbar_shadow" filename="Default/ActionBar/shadow"/>
 		<image name="actionbar_btn" filename="Default/ActionBar/actionbar_btn" retainaspect="1"/>
@@ -61,7 +58,6 @@
 		<image name="battery_low_p" filename="Default/Battery/battery_low_p" retainaspect="1"/>
 		
 		<!-- Controls -->
-		<image name="btn_raised_warn" filename="Default/Controls/btn_raised_warn"/>
 		<image name="checkbox_false" filename="Default/Controls/checkbox_false_d" retainaspect="1"/>
 		<image name="radio_false" filename="Default/Controls/radio_false_d" retainaspect="1"/>
 		
