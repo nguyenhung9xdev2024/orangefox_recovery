@@ -663,6 +663,9 @@
 				<listitem name="{@cust_autoapply}">
 					<data variable="instant_apply"/>
 				</listitem>
+				<listitem name="{@navpan_new_design}">
+					<data variable="floating_panel"/>
+				</listitem>
 			</listbox>
 
 			<template name="gestures"/>

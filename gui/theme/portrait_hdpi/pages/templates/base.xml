@@ -104,7 +104,13 @@
         <template name="base_nav_basic">
 			<template name="statusbarinfo"/>
 			<fill color="%cards_bg%" radius="36">
+				<condition var1="floating_panel" var2="1"/>
 				<placement x="%nav_panel_x%" y="%nav_panel_y%" w="%nav_panel_w%" h="%nav_panel_h%"/>
+			</fill>
+
+			<fill color="%cards_bg%" radius="36">
+				<condition var1="floating_panel" op="!=" var2="1"/>
+				<placement x="0" y="%nav_panel_y%" w="%screen_w%" h="%nav_panel_full_h%"/>
 			</fill>
 
 			<fill color="%accent%" radius="-1">

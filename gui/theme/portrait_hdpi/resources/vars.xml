@@ -70,6 +70,7 @@
 		<variable name="instant_apply" value="0" persist="1"/> 
 		<variable name="key_allow_swipe" value="0" persist="1"/> 
 		<variable name="ota_new_screen" value="1" persist="1"/>
+		<variable name="floating_panel" value="1" persist="1"/>
 
 		<variable name="gst_back_left" value="0" persist="1"/> 
 		<variable name="gst_back_right" value="0" persist="1"/> 
@@ -130,6 +131,7 @@
 		<!-- NavPanel -->
 		<variable name="nav_item_w" value="270"/>
 		<variable name="nav_panel_h" value="216"/>
+		<variable name="nav_panel_full_h" value="%screen_w%-360"/>
 		<variable name="nav_panel_id" value="0"/>
 		<variable name="nav_panel_w" value="%screen_w%-96"/>
 		<variable name="nav_panel_x" value="48"/>
