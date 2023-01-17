@@ -84,55 +84,11 @@ GUIButton::GUIButton(xml_node<>* node)
 
 	int x = 0, y = 0, w = 0, h = 0;
 	TextPlacement = TOP_LEFT;
-	mPlacement = TOP_LEFT;
 	if (mButtonImg) {
 		mButtonImg->GetRenderPos(x, y, w, h);
 	} else if (hasFill) {
 		LoadPlacement(FindNode(node, "placement"), &x, &y, &w, &h, &TextPlacement);
 	}
-
-	if (hasFill) {
-		xml_node<>* placementNode = FindNode(node, "placement");
-
-		if (placementNode->first_attribute("w"))
-			mFillW = LoadAttrIntScaleX(placementNode, "w");
-
-		if (placementNode->first_attribute("h"))
-			mFillH = LoadAttrIntScaleY(placementNode, "h");
-
-		if (mButtonImg == NULL) {
-			if (placementNode->first_attribute("placement"))
-				mPlacement = (Placement) LoadAttrInt(placementNode, "placement");
-				
-			if (mPlacement != TOP_LEFT && mPlacement != BOTTOM_LEFT)
-			{
-				if (mPlacement == CENTER)
-					x -= (w / 2);
-				else
-					x -= w;
-			}
-			if (mPlacement != TOP_LEFT && mPlacement != TOP_RIGHT)
-			{
-				if (mPlacement == CENTER)
-					y -= (h / 2);
-				else
-					y -= h;
-			}
-		}
-
-		mRadius = LoadAttrIntScaleX(FindNode(node, "fill"), "radius");
-
-		if(mRadius <= -1) {
-			mCircle1 = gr_render_antialiased_circle(mFillH / 2 - 1, mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha, 1);
-			mCircle2 = gr_render_antialiased_circle(mFillH / 2 - 1, mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha, 2);
-		} else if(mRadius > 0) {
-			mCircle1 = gr_render_antialiased_circle(mRadius * 2, mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha, 3);
-			mCircle2 = gr_render_antialiased_circle(mRadius * 2, mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha, 4);
-			mCircle3 = gr_render_antialiased_circle(mRadius * 2, mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha, 5);
-			mCircle4 = gr_render_antialiased_circle(mRadius * 2, mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha, 6);
-		}
-	}
-
 	SetRenderPos(x, y, w, h);
 	if (mButtonLabel) {
 		TextPlacement = (Placement)LoadAttrInt(FindNode(node, "placement"), "textplacement", TOP_LEFT);
@@ -161,15 +117,6 @@ GUIButton::~GUIButton()
 	delete mButtonImg;
 	delete mButtonLabel;
 	delete mAction;
-	
-	if (mCircle1)
-		gr_free_surface(mCircle1);
-	if (mCircle2)
-		gr_free_surface(mCircle2);
-	if (mCircle3)
-		gr_free_surface(mCircle3);
-	if (mCircle4)
-		gr_free_surface(mCircle4);
 }
 
 int GUIButton::Render(void)
@@ -183,32 +130,10 @@ int GUIButton::Render(void)
 	int ret = 0;
 
 	if (mButtonImg)	 ret = mButtonImg->Render();
-	//if (ret >= 0)		return ret;
+	if (ret < 0)		return ret;
 	if (hasFill) {
-		// [f/d] rounded fill 
-		if(mRadius <= -1) {
-			gr_blit(mCircle1, 0, 0, mRenderH / 2, mRenderH + 1, mRenderX, mRenderY);
-			gr_blit(mCircle2, 0, 0, mRenderH / 2, mRenderH + 1, mRenderX + mRenderW - mRenderH / 2, mRenderY);
-
-			gr_color(mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha);
-			gr_fill(mRenderX + mRenderH / 2, mRenderY, mRenderW - mRenderH, mRenderH);
-		} else if(mRadius > 0) {
-			int d = mRadius * 2 + 1;
-			int posFixX = mRenderW == mFillW ? 0 : (mRenderW - mFillW) / 2;
-			int posFixY = mRenderH == mFillH ? 0 : (mRenderH - mFillH) / 2;
-
-			gr_blit(mCircle1, 0, 0, d, d, posFixX + mRenderX, posFixY + mRenderY);
-			gr_blit(mCircle2, 0, 0, d, d, posFixX + mRenderX + mFillW - d, posFixY + mRenderY);
-			gr_blit(mCircle3, 0, 0, d, d, posFixX + mRenderX, posFixY + mRenderY + mFillH - d);
-			gr_blit(mCircle4, 0, 0, d, d, posFixX + mRenderX + mFillW - d, posFixY + mRenderY + mFillH - d);
-
-			gr_color(mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha);
-			gr_fill(posFixX + mRenderX + d, posFixY + mRenderY, mFillW - d * 2, mFillH);
-			gr_fill(posFixX + mRenderX, posFixY + mRenderY + d, mFillW, mFillH - d * 2);
-		} else {
-			gr_color(mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha);
-			gr_fill(mRenderX, mRenderY, mFillW, mFillH);
-		}
+		gr_color(mFillColor.red, mFillColor.green, mFillColor.blue, mFillColor.alpha);
+		gr_fill(mRenderX, mRenderY, mRenderW, mRenderH);
 	}
 	if (mButtonIcon && mButtonIcon->GetResource())
 		gr_blit(mButtonIcon->GetResource(), 0, 0, mIconW, mIconH, mIconX, mIconY);
