@@ -71,7 +71,7 @@
 
 			<button style="btn_raised_hl">
 				<condition var1="tw_reboot_system" var2="1"/>
-				<placement x="%btn_raised_right_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row_btn1_y%" placement="1"/>
 				<text>{@reboot_system_btn}</text>
 				<action function="set">tw_back=main</action>
 				<action function="set">tw_action_param=system</action>
@@ -158,13 +158,13 @@
 			
 			<button style="nav_panel_btn">
 				<condition var1="nav_panel_id" var2="0"/>
-				<placement x="%nav_item_1%" y="%nav_item_y%" w="%nav_item_w%" h="%nav_panel_h%" placement="4"/>
+				<placement x="%nav_item_1%" y="%nav_item_y%" placement="4"/>
 				<action function="page">menu</action>
 			</button>
 			
 			<button style="nav_panel_btn">
 				<condition var1="nav_panel_id" op="!=" var2="0"/>
-				<placement x="%nav_item_1%" y="%nav_item_y%" w="%nav_item_w%" h="%nav_panel_h%" placement="4"/>
+				<placement x="%nav_item_1%" y="%nav_item_y%" placement="4"/>
 				<action function="page">filemanagerlist</action>
 			</button>
 			
@@ -192,8 +192,8 @@
 				<text>{@backup_btn}</text>
 			</text>
 			
-			<button style="nav_panel_btn">
-				<placement x="%nav_item_2%" y="%nav_item_y%" w="%nav_item_w%" h="%nav_panel_h%" placement="4"/>
+			<button>
+				<placement x="%nav_item_2%" y="%nav_item_y%" placement="4"/>
 				<condition var1="nav_panel_id" op="!=" var2="1"/>
 				<action function="page">restore</action>
 			</button>
@@ -222,9 +222,9 @@
 				<text>{@wipe_btn}</text>
 			</text>
 			
-			<button style="nav_panel_btn">
+			<button>
 				<condition var1="nav_panel_id" op="!=" var2="2"/>
-				<placement x="%nav_item_3%" y="%nav_item_y%" w="%nav_item_w%" h="%nav_panel_h%" placement="4"/>
+				<placement x="%nav_item_3%" y="%nav_item_y%" placement="4"/>
 				<action function="page">wipe</action>
 			</button>
 			
@@ -252,9 +252,9 @@
 				<text>{@menu_btn}</text>
 			</text>
 			
-			<button style="nav_panel_btn">
+			<button>
 				<condition var1="nav_panel_id" op="!=" var2="3"/>
-				<placement x="%nav_item_4%" y="%nav_item_y%" w="%nav_item_w%" h="%nav_panel_h%" placement="4"/>
+				<placement x="%nav_item_4%" y="%nav_item_y%" placement="4"/>
 				<action function="page">advanced</action>
 			</button>
 
@@ -429,7 +429,7 @@
         <!-- Action pages -->
         <template name="back_btn">
 			<button style="btn_raised">
-				<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_w%" h="%btn_h%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
 				<text>{@back_btn}</text>
 				<action function="key">back</action>
 			</button>

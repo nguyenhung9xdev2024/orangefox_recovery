@@ -74,13 +74,24 @@
 				<listtype name="mount"/>
 			</partitionlist>
 			
+			<image>
+				<condition var1="tw_has_usb_storage" var2="1"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_shadow"/>
+			</image>
+			
 			<button style="floating_btn">
 				<condition var1="tw_has_usb_storage" var2="1"/>
-				<placement x="%btn_float_x%" y="%btn_float_y%" w="%btn_float_size%" h="%btn_float_size%" placement="4"/>
-				<icon resource="fab_usb"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
 				<action function="mount">usb</action>
 				<action function="page">usb_mount</action>
 			</button>
+			
+			<image>
+				<condition var1="tw_has_usb_storage" var2="1"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_usb"/>
+			</image>
 
 			<template name="gestures"/>
 
@@ -313,25 +324,25 @@
 			</patternpassword>
 
 			<button style="btn_flat_qw">
-				<placement x="%btn_raised_left_x%" y="%row_btn1_y%" w="%btn_half_w%" h="%btn_h%"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
 				<text>3x3</text>
 				<action function="set">tw_gui_pattern_grid_size=3</action>
 			</button>
 
 			<button style="btn_flat_qw">
-				<placement x="286" y="%row_btn1_y%" w="%btn_half_w%" h="%btn_h%"/>
+				<placement x="286" y="%row_btn1_y%"/>
 				<text>4x4</text>
 				<action function="set">tw_gui_pattern_grid_size=4</action>
 			</button>
 
 			<button style="btn_flat_qw">
-				<placement x="545" y="%row_btn1_y%" w="%btn_half_w%" h="%btn_h%"/>
+				<placement x="545" y="%row_btn1_y%"/>
 				<text>5x5</text>
 				<action function="set">tw_gui_pattern_grid_size=5</action>
 			</button>
 
 			<button style="btn_flat_qw">
-				<placement x="804" y="%row_btn1_y%" w="%btn_half_w%" h="%btn_h%"/>
+				<placement x="804" y="%row_btn1_y%"/>
 				<text>6x6</text>
 				<action function="set">tw_gui_pattern_grid_size=6</action>
 			</button>

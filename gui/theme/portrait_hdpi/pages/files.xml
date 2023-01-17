@@ -288,13 +288,24 @@
 				<image resource="actionbar_cancel"/>
 			</image>
 
+			<image>
+				<condition var1="of_batch_count" op="&gt;=" var2="1"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_shadow"/>
+			</image>
+
 			<button style="floating_btn">
 				<condition var1="of_batch_count" op="&gt;=" var2="1"/>
-				<placement x="%btn_float_x%" y="%btn_float_y%" w="%btn_float_size%" h="%btn_float_size%" placement="4"/>
-				<icon resource="fab_accept"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
 				<action function="set">of_is_batch=1</action>
 				<action function="page">fm_ms_actions</action>
 			</button>
+			
+			<image>
+				<condition var1="of_batch_count" op="&gt;=" var2="1"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_accept"/>
+			</image>
 
 			<template name="gestures"/>
 
@@ -761,12 +772,23 @@
 				<text>{@fm_books_desc_edit}</text>
 			</text>
 			
+			<image>
+				<condition var1="book_edit" var2="1"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_shadow"/>
+			</image>
+			
 			<button style="floating_btn">
 				<condition var1="book_edit" var2="1"/>
-				<placement x="%btn_float_x%" y="%btn_float_y%" w="%btn_float_size%" h="%btn_float_size%" placement="4"/>
-				<icon resource="fab_close"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
 				<action function="set">book_edit=0</action>
 			</button>
+			
+			<image>
+				<condition var1="book_edit" var2="1"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_close"/>
+			</image>
 			
 			<action>
 				<condition var1="book_edit" var2="0"/>
@@ -1338,15 +1360,24 @@
 				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
 				<text>%tw_file_location2%</text>
 			</text>
+			
+			<image>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_shadow"/>
+			</image>
 
 			<button style="floating_btn">
-				<placement x="%btn_float_x%" y="%btn_float_y%" w="%btn_float_size%" h="%btn_float_size%" placement="4"/>
-				<icon resource="fab_accept"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
 				<action function="set">tw_fm_text2={@fordowns_to}</action>
 				<action function="set">tw_fm_text3=%tw_file_location2%</action>
 				<action function="set">tw_include_text3=1</action>
 				<action function="page">filemanagerconfirm</action>
 			</button>
+			
+			<image>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_accept"/>
+			</image>
 
 			<template name="gestures"/>
 
@@ -1593,15 +1624,24 @@
 				<text>%tw_filemanager_rename%</text>
 			</text>-->
 			
+			<image>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_shadow"/>
+			</image>
+			
 			<button style="floating_btn">
-				<placement x="%btn_float_x%" y="%btn_float_y%" w="%btn_float_size%" h="%btn_float_size%" placement="4"/>
-				<icon resource="fab_accept"/>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
 				<action function="calculate_chmod"/>
 				<action function="set">tw_filemanager_command=chmod %tw_filemanager_rename%</action>
 				<action function="set">tw_fm_text1=chmod %tw_filemanager_rename%</action>
 				<action function="set">tw_back=filemanageroptions</action>
 				<action function="page">filemanagerconfirm</action>
 			</button>
+
+			<image>
+				<placement x="%btn_float_x%" y="%btn_float_y%" placement="4"/>
+				<image resource="fab_accept"/>
+			</image>
 
 			<template name="gestures"/>
 			

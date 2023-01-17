@@ -496,7 +496,7 @@
 			</text>
 
 			<button style="btn_flat_qw">
-				<placement x="%btn_raised_left_x%" y="%row1_1_y%" w="%btn_half_w%" h="%btn_h%"/>
+				<placement x="%btn_raised_left_x%" y="%row1_1_y%"/>
 				<text>{@btn_flat_less}</text>
 				<action function="addsubtract">tw_sdext_size-128</action>
 			</button>
@@ -507,13 +507,13 @@
 			</text>
 
 			<button style="btn_flat_qw">
-				<placement x="%btn_raised_right_x%" y="%row1_1_y%" w="%btn_half_w%" h="%btn_h%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row1_1_y%" placement="1"/>
 				<text>{@btn_flat_more}</text>
 				<action function="addsubtract">tw_sdext_size+128</action>
 			</button>
 
 			<button style="btn_flat_qw">
-				<placement x="%btn_raised_left_x%" y="%row2_1_y%" w="%btn_half_w%" h="%btn_h%"/>
+				<placement x="%btn_raised_left_x%" y="%row2_1_y%"/>
 				<text>{@btn_flat_less}</text>
 				<action function="addsubtract">tw_swap_size-32</action>
 			</button>
@@ -524,13 +524,13 @@
 			</text>
 
 			<button style="btn_flat_qw">
-				<placement x="%btn_raised_right_x%" y="%row2_1_y%" w="%btn_half_w%" h="%btn_h%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row2_1_y%" placement="1"/>
 				<text>{@btn_flat_more}</text>
 				<action function="addsubtract">tw_swap_size+32</action>
 			</button>
 
 			<button style="btn_flat_qw">
-				<placement x="%btn_raised_left_x%" y="%row3_1_y%" w="%btn_half_w%" h="%btn_h%"/>
+				<placement x="%btn_raised_left_x%" y="%row3_1_y%"/>
 				<text>{@btn_flat_ext3}</text>
 				<action function="set">tw_sdpart_file_system=ext3</action>
 			</button>
@@ -541,7 +541,7 @@
 			</text>
 
 			<button style="btn_flat_qw">
-				<placement x="%btn_raised_right_x%" y="%row3_1_y%" w="%btn_half_w%" h="%btn_h%" placement="1"/>
+				<placement x="%btn_raised_right_x%" y="%row3_1_y%" placement="1"/>
 				<text>{@btn_flat_ext4}</text>
 				<action function="set">tw_sdpart_file_system=ext4</action>
 			</button>
