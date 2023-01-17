@@ -46,44 +46,25 @@ extern "C" {
 GUIFill::GUIFill(xml_node<>* node) : GUIObject(node)
 {
 	bool has_color = false;
-	mCircle1 = NULL;
-	mCircle2 = NULL;
-	mCircle3 = NULL;
-	mCircle4 = NULL;
+	mCircle = NULL;
 	mColor = LoadAttrColor(node, "color", &has_color);
 	if (!has_color) {
 		LOGERR("No color specified for fill\n");
 		return;
 	}
 
-	mRadius = LoadAttrIntScaleX(node, "radius");
+	mIsRounded = LoadAttrString(node, "rounded", "0");
 
 	// Load the placement
 	LoadPlacement(FindNode(node, "placement"), &mRenderX, &mRenderY, &mRenderW, &mRenderH);
-
-	if(mRadius <= -1) {
-		mCircle1 = gr_render_antialiased_circle(mRenderH / 2 - 1, mColor.red, mColor.green, mColor.blue, mColor.alpha, 1);
-		mCircle2 = gr_render_antialiased_circle(mRenderH / 2 - 1, mColor.red, mColor.green, mColor.blue, mColor.alpha, 2);
-	} else if(mRadius > 0) {
-		mCircle1 = gr_render_antialiased_circle(mRadius * 2, mColor.red, mColor.green, mColor.blue, mColor.alpha, 3);
-		mCircle2 = gr_render_antialiased_circle(mRadius * 2, mColor.red, mColor.green, mColor.blue, mColor.alpha, 4);
-		mCircle3 = gr_render_antialiased_circle(mRadius * 2, mColor.red, mColor.green, mColor.blue, mColor.alpha, 5);
-		mCircle4 = gr_render_antialiased_circle(mRadius * 2, mColor.red, mColor.green, mColor.blue, mColor.alpha, 6);
-	}
 
 	return;
 }
 
 GUIFill::~GUIFill()
 {
-	if (mCircle1)
-		gr_free_surface(mCircle1);
-	if (mCircle2)
-		gr_free_surface(mCircle2);
-	if (mCircle3)
-		gr_free_surface(mCircle3);
-	if (mCircle4)
-		gr_free_surface(mCircle4);
+	if (mCircle)
+		gr_free_surface(mCircle);
 }
 
 int GUIFill::Render(void)
@@ -91,31 +72,19 @@ int GUIFill::Render(void)
 	if (!isConditionTrue())
 		return 0;
 
-	// [f/d] rounded fill
-	if(mRadius <= -1) { // "lite" mode, draws two circles on the sides, d = h
-		gr_blit(mCircle1, 0, 0, mRenderH / 2, mRenderH + 1, mRenderX, mRenderY);
-		gr_blit(mCircle2, 0, 0, mRenderH / 2, mRenderH + 1, mRenderX + mRenderW - mRenderH / 2, mRenderY);
-
-		gr_color(mColor.red, mColor.green, mColor.blue, mColor.alpha);
-		gr_fill(mRenderX + mRenderH / 2, mRenderY, mRenderW - mRenderH, mRenderH);
-	} else if(mRadius > 0) {
-		// draw 4 circles
-		int d = mRadius * 2 + 1;
-		gr_blit(mCircle1, 0, 0, d, d, mRenderX, mRenderY);
-		gr_blit(mCircle2, 0, 0, d, d, mRenderX + mRenderW - d, mRenderY);
-		gr_blit(mCircle3, 0, 0, d, d, mRenderX, mRenderY + mRenderH - d);
-		gr_blit(mCircle4, 0, 0, d, d, mRenderX + mRenderW - d, mRenderY + mRenderH - d);
-
-		// draw +
-		gr_color(mColor.red, mColor.green, mColor.blue, mColor.alpha);
-		gr_fill(mRenderX + d, mRenderY, mRenderW - d * 2, mRenderH);
-		gr_fill(mRenderX, mRenderY + d, mRenderW, mRenderH - d * 2);
-	} else {
-		gr_color(mColor.red, mColor.green, mColor.blue, mColor.alpha);
-		gr_fill(mRenderX, mRenderY, mRenderW, mRenderH);
+	if(mIsRounded == "1") {
+		int w, h, half;
+		half = mRenderH / 2;
+		mCircle = gr_render_circle(half, mColor.red, mColor.green, mColor.blue, mColor.alpha);
+		w = gr_get_width(mCircle);
+		h = gr_get_height(mCircle);
+		mRenderH = h;
+		gr_blit(mCircle, 0, 0, w, h, mRenderX - half, mRenderY);
+		gr_blit(mCircle, 0, 0, w, h, mRenderX + mRenderW + half - mRenderH, mRenderY);
 	}
-	// [/f/d]
 
+	gr_color(mColor.red, mColor.green, mColor.blue, mColor.alpha);
+	gr_fill(mRenderX, mRenderY, mRenderW, mRenderH);
 
 	return 0;
 }

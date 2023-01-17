@@ -263,11 +263,8 @@ public:
 
 protected:
 	COLOR mColor;
-	gr_surface mCircle1;
-	gr_surface mCircle2;
-	gr_surface mCircle3;
-	gr_surface mCircle4;
-	int mRadius;
+	gr_surface mCircle;
+	std::string mIsRounded;
 };
 
 class GUIBattery : public GUIObject, public RenderObject

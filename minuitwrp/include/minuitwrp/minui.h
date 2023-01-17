@@ -50,7 +50,6 @@ void gr_noclip();
 void gr_fill(int x, int y, int w, int h);
 void gr_line(int x0, int y0, int x1, int y1, int width);
 gr_surface gr_render_circle(int radius, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
-gr_surface gr_render_antialiased_circle(int radius, unsigned char r, unsigned char g, unsigned char b, unsigned char a, int mode);
 
 int gr_textEx_scaleW(int x, int y, const char *s, void* pFont, int max_width, int placement, int scale);
 
