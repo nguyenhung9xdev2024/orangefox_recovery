@@ -14,7 +14,6 @@
 		<image name="nav_files_d" filename="Default/NavPanel/files_d" retainaspect="1"/>
 		<image name="nav_backup_d" filename="Default/NavPanel/backup_d" retainaspect="1"/>
 		
-		<image name="actionbar_shadow" filename="Default/ActionBar/shadow"/>
 		<image name="actionbar_btn" filename="Default/ActionBar/actionbar_btn" retainaspect="1"/>
 		<image name="actionbar_btn_hl" filename="Default/ActionBar/actionbar_btn_hl" retainaspect="1"/>
 		
@@ -108,7 +107,6 @@
 		<image name="shift" filename="Default/Keyboard/shift" retainaspect="1"/>
 		<image name="shift_fill" filename="Default/Keyboard/shift_fill" retainaspect="1"/>
 		<image name="space" filename="Default/Keyboard/space" retainaspect="1"/>
-		<image name="keyboard_shadow" filename="Default/Keyboard/keyboard_shadow"/>
 		<image name="kb_arrow_left" filename="Default/Keyboard/kb_arrow_left" retainaspect="1"/>
 		<image name="kb_arrow_right" filename="Default/Keyboard/kb_arrow_right" retainaspect="1"/>
 		<image name="kb_arrow_up" filename="Default/Keyboard/kb_arrow_up" retainaspect="1"/>
