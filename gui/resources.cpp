@@ -231,6 +231,23 @@ ImageResource::ImageResource(xml_node<>* node, ZipArchiveHandle pZip)
 	bool retain_aspect = (node->first_attribute("retainaspect") != NULL);
 	// the value does not matter, if retainaspect is present, we assume that we want to retain it
 	LoadImage(pZip, file, &temp_surface);
+
+	bool found_color_attr = false;
+	COLOR color = LoadAttrColor(node, "tint", &found_color_attr);
+
+	if (found_color_attr) {
+		GGLSurface *surface = (GGLSurface*)temp_surface;
+		int size = surface->width * surface->height;
+		uint32_t *data = (uint32_t *)surface->data;
+
+		const uint32_t px_find = 255 << 24;
+		const uint32_t px_replace = (color.alpha << 24) | (color.blue << 16) | (color.green << 8) | color.red;
+		
+		for (int i = 0; i < size; i++)
+			if (*(data + i) == px_find)
+				*(data + i) = px_replace;
+	}
+
 	CheckAndScaleImage(temp_surface, &mSurface, retain_aspect);
 }
 
