@@ -47,9 +47,10 @@
 			<template name="navbar_console"/>
 			<template name="navbar_back_classic"/>
 			
-			<fill color="%cards_bg%" radius="32">
-				<placement x="48" y="%search_bar_bg_y%" w="984" h="260"/>
-			</fill>
+			<image>
+				<placement x="48" y="%search_bar_bg_y%" />
+				<image resource="search_bar_bg"/>
+			</image>
 
 			<fill color="%background%">
 				<placement x="48" y="%search_bar_line_y%" w="984" h="4"/>

@@ -2,11 +2,12 @@
 <recovery>
 	<templates>
 		<template name="gestures_line">
-			<fill color="#FFFFFF" radius="-1">
+			<image>
 				<condition var1="tw_busy" var2="0"/>
 				<condition var1="real_gestures_enable" var2="1"/>
-				<placement x="435" y="%gst_line_y%" w="210" h="7" placement="4"/>
-			</fill>
+				<placement x="435" y="%gst_line_y%" placement="4"/>
+				<image resource="nb_gesture_line"/>
+			</image>
 		</template>
 
 		<template name="gestures_basic">

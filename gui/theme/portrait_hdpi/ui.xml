@@ -14,8 +14,8 @@
 		<xml name="%fox_theme_path%/accent.xml"  default="/twres/themes/accent.xml"/>
 		<xml name="%fox_theme_path%/action.xml"  default="/twres/themes/action.xml"/>
 
-		<xml name="/twres/resources/images.xml"/>
 		<xml name="/twres/resources/vars.xml"/>
+		<xml name="/twres/resources/images.xml"/>
 		<xml name="/twres/resources/styles.xml"/>
 	
 		<xml name="/twres/pages/templates/base.xml"/>

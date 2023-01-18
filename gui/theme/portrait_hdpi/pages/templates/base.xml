@@ -102,35 +102,40 @@
 
         <template name="base_nav_basic">
 			<template name="statusbarinfo"/>
-			<fill color="%cards_bg%" radius="36">
+			<image>
 				<condition var1="floating_panel" var2="1"/>
-				<placement x="%nav_panel_x%" y="%nav_panel_y%" w="%nav_panel_w%" h="%nav_panel_h%"/>
-			</fill>
+				<placement x="%nav_panel_x%" y="%nav_panel_y%"/>
+				<image resource="nav_bg" />
+			</image>
 
-			<fill color="%cards_bg%" radius="36">
+			<fill color="%cards_bg%">
 				<condition var1="floating_panel" op="!=" var2="1"/>
 				<placement x="0" y="%nav_panel_y%" w="%screen_w%" h="%nav_panel_full_h%"/>
 			</fill>
 
-			<fill color="%accent%" radius="-1">
+			<image>
 				<condition var1="nav_panel_id" var2="0"/>
-				<placement x="%np_pill_x1%" y="%np_pill_y%" w="%np_pill_w%" h="%np_pill_h%"/>
-			</fill>
+				<placement x="%np_pill_x1%" y="%np_pill_y%" />
+				<image resource="nav_pill"/>
+			</image>
 
-			<fill color="%accent%" radius="-1">
+			<image>
 				<condition var1="nav_panel_id" var2="1"/>
-				<placement x="%np_pill_x2%" y="%np_pill_y%" w="%np_pill_w%" h="%np_pill_h%"/>
-			</fill>
+				<placement x="%np_pill_x2%" y="%np_pill_y%" />
+				<image resource="nav_pill"/>
+			</image>
 
-			<fill color="%accent%" radius="-1">
+			<image>
 				<condition var1="nav_panel_id" var2="2"/>
-				<placement x="%np_pill_x3%" y="%np_pill_y%" w="%np_pill_w%" h="%np_pill_h%"/>
-			</fill>
+				<placement x="%np_pill_x3%" y="%np_pill_y%" />
+				<image resource="nav_pill"/>
+			</image>
 
-			<fill color="%accent%" radius="-1">
+			<image>
 				<condition var1="nav_panel_id" var2="3"/>
-				<placement x="%np_pill_x4%" y="%np_pill_y%" w="%np_pill_w%" h="%np_pill_h%"/>
-			</fill>
+				<placement x="%np_pill_x4%" y="%np_pill_y%"/>
+				<image resource="nav_pill"/>
+			</image>
 			
 			<image>
 				<condition var1="nav_panel_id" var2="0"/>
@@ -192,7 +197,7 @@
 				<text>{@backup_btn}</text>
 			</text>
 			
-			<button>
+			<button style="nav_panel_btn">
 				<placement x="%nav_item_2%" y="%nav_item_y%" placement="4"/>
 				<condition var1="nav_panel_id" op="!=" var2="1"/>
 				<action function="page">restore</action>
@@ -222,7 +227,7 @@
 				<text>{@wipe_btn}</text>
 			</text>
 			
-			<button>
+			<button style="nav_panel_btn">
 				<condition var1="nav_panel_id" op="!=" var2="2"/>
 				<placement x="%nav_item_3%" y="%nav_item_y%" placement="4"/>
 				<action function="page">wipe</action>
@@ -252,7 +257,7 @@
 				<text>{@menu_btn}</text>
 			</text>
 			
-			<button>
+			<button style="nav_panel_btn">
 				<condition var1="nav_panel_id" op="!=" var2="3"/>
 				<placement x="%nav_item_4%" y="%nav_item_y%" placement="4"/>
 				<action function="page">advanced</action>
