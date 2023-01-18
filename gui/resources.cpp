@@ -336,11 +336,13 @@ ImageResource::ImageResource(xml_node<>* node) : Resource(node, NULL)
 		return;
 	}
 
-	int w = LoadAttrIntScaleX(node, "w", 1),
+	int original_radius = LoadAttrInt(node, "radius", 0),
+		w = LoadAttrIntScaleX(node, "w", 1),
 		h = LoadAttrIntScaleY(node, "h", 1),
-		r = LoadAttrIntScaleX(node, "radius", 0),
-		s = LoadAttrIntScaleX(node, "stroke", 0);
+		r = original_radius <= 0 ? original_radius : scale_theme_x(original_radius), //don't scale -1 value
+		s = LoadAttrIntScaleY(node, "stroke", 0);
 
+	
 
 	COLOR color = LoadAttrColor(node, "color", COLOR(0,0,0));
 	
