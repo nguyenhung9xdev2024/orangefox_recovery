@@ -32,6 +32,8 @@ extern "C" {
 #include "minuitwrp/minui.h"
 }
 
+uint32_t* createShape(int w, int h, int radius, int stroke, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+
 // Base Objects
 class Resource
 {
@@ -78,6 +80,7 @@ class ImageResource : public Resource
 {
 public:
 	ImageResource(xml_node<>* node, ZipArchiveHandle pZip);
+	ImageResource(xml_node<>* node);
 	virtual ~ImageResource();
 
 public:

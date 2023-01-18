@@ -234,6 +234,136 @@ ImageResource::ImageResource(xml_node<>* node, ZipArchiveHandle pZip)
 	CheckAndScaleImage(temp_surface, &mSurface, retain_aspect);
 }
 
+// [f/d] draw antialiased circles, rectangles, rounded rectangles
+// radius == -1 - fully rounded sides
+// stroke == 0 - filled shape
+// It's here because modifying minuitwrp requires full project rebuild
+uint32_t* createShape(int w, int h, int radius, int stroke, COLOR color)
+{
+	const int malloc_size = w * h * 4;
+    uint32_t *data;
+
+    data = (uint32_t *)malloc(malloc_size);
+    memset(data, 0, malloc_size);
+	
+    const uint32_t px = (color.alpha << 24) | (color.blue << 16) | (color.green << 8) | color.red;
+
+	if (radius == 0 && stroke == 0) // that's just a fill
+	{
+		if (color.alpha != 0) // or it may be nothing
+			for (int i = 0; i < w * h; i++)
+				*(data + i) = px;
+			
+		return data;
+	}
+
+    float rx, ry;
+    int min_side = std::min(w, h) / 2;
+    if (radius < 0 || radius > min_side) radius = min_side;
+    if (stroke < 0 || stroke > min_side) stroke = 0;
+
+    int diameter = radius * 2;
+
+	// original circle method produces circles with odd diameter. This variable makes circles with even diameter
+    const float radius2 = radius - 0.5; 
+
+    const float radius_check = radius2 * radius2 + radius2 * 0.8;
+    const float radius_check_aa = radius2 * radius2 + radius2 * 1.6;
+    
+    const uint32_t px_aa = ((color.alpha / 2) << 24) | (color.blue << 16) | (color.green << 8) | color.red; // antialiasing
+    
+    const int s_half = w * h / 2;
+
+    if (stroke <= 0) {
+        for (int i = 0; i < w * h; i++)
+            *(data + i) = px;
+
+        for(ry = -radius2; ry <= radius; ++ry)
+            for(rx = -radius2; rx <= radius; ++rx){
+                int check = rx*rx+ry*ry,
+                    space_w = rx >= 0 ? w - diameter : 0,
+                    space_h = ry >= 0 ? h - diameter : 0,
+                    pos = w*(radius2 + (ry + space_h)) + (radius2+rx) + space_w;
+
+                if(check <= radius_check)
+                    *(data + pos) = px;
+                else if (check <= radius_check_aa && ry < radius)
+                    *(data + pos) = px_aa;
+                else
+                    *(data + pos) = 0;
+            }
+		
+    	return data;
+    }
+
+    const float radius_check_hollow = radius2 * radius2 - radius2 * 0.8 - radius * 2 * (stroke - 1);
+    const float radius_check_hollow_aa = radius2 * radius2 - radius2 * 1.4 - radius * 2 * (stroke - 1);
+
+    for(ry = -radius2; ry <= radius; ++ry)
+        for(rx = -radius2; rx <= radius; ++rx) {
+            int check = rx*rx+ry*ry,
+                space_w = rx >= 0 ? w - diameter : 0,
+                space_h = ry >= 0 ? h - diameter : 0,
+                pos = w*(radius2 + (ry + space_h)) + (radius2+rx) + space_w;
+
+
+            if(check < radius_check && check > radius_check_hollow) {
+                *(data + pos) =  px;
+                
+                if (rx == -0.5)
+                    for (int ii = 1; ii <= w - diameter; ii++)
+                        *(data + pos + ii) =  px;    
+                else if ((int)ry == 0 && pos < s_half)
+                    for (int ii = 1; ii <= h - diameter; ii++)
+                        *(data + pos + ii*w) = px;
+                        
+            } else if (check < radius_check_aa && check > radius_check_hollow_aa && ry < radius && ry < radius && rx < diameter)
+                *(data + pos) = px_aa;
+            else
+                *(data + pos) = 0;
+        }
+
+    return data;
+}
+
+// [f/d] constructor for fake images that are actually shapes
+// Usage: <resources><shape name="img_name" color="#FFFFFF" w="100" h="50" radius="10" stroke="0" /> </resources>
+// Then, reference it like normal image: <image resource="img_name"/>
+ImageResource::ImageResource(xml_node<>* node) : Resource(node, NULL)
+{
+	if (!node) {
+		LOGERR("ImageResource node is NULL\n");
+		return;
+	}
+
+	int w = LoadAttrIntScaleX(node, "w", 1),
+		h = LoadAttrIntScaleY(node, "h", 1),
+		r = LoadAttrIntScaleX(node, "radius", 0),
+		s = LoadAttrIntScaleX(node, "stroke", 0);
+
+
+	COLOR color = LoadAttrColor(node, "color", COLOR(0,0,0));
+	
+    GGLSurface *surface;
+    surface = (GGLSurface *)malloc(sizeof(GGLSurface));
+    memset(surface, 0, sizeof(GGLSurface));
+
+	surface->version = sizeof(surface);
+    surface->width = w;
+    surface->height = h;
+    surface->stride = w;
+    surface->data = (GGLubyte*)createShape(w, h, r, s, color);
+	// TODO: FIX RECOVERY_BGRA
+	#if defined(RECOVERY_BGRA)
+		surface->format = GGL_PIXEL_FORMAT_BGRA_8888;
+	#else
+		surface->format = GGL_PIXEL_FORMAT_RGBA_8888;
+	#endif
+	
+    mSurface = (gr_surface)surface;
+}
+// [/f/d]
+
 ImageResource::~ImageResource()
 {
 	if (mSurface)
@@ -410,6 +540,16 @@ void ResourceManager::LoadResources(xml_node<>* resList, ZipArchiveHandle pZip, 
 		else if (type == "image")
 		{
 			ImageResource* res = new ImageResource(child, pZip);
+			if (res && res->GetResource())
+				mImages.push_back(res);
+			else {
+				error = true;
+				delete res;
+			}
+		}
+		else if (type == "shape")
+		{
+			ImageResource* res = new ImageResource(child);
 			if (res && res->GetResource())
 				mImages.push_back(res);
 			else {
