@@ -119,8 +119,8 @@
 
 			<image>
 				<condition var1="of_backup_empty" var2="1"/>
-				<image resource="empty_folder"/>
-				<placement x="304" y="%row1_3_y%"/>
+				<image resource="demo"/>
+				<placement x="0" y="0"/>
 			</image>
 
 			<text style="text_ab_subtitle_orange">

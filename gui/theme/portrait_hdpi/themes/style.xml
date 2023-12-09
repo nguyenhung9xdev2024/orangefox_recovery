@@ -8,7 +8,7 @@
 		<image name="nav_menu" filename="Default/NavPanel/menu" retainaspect="1"/>
 		<image name="nav_wipe" filename="Default/NavPanel/wipe" retainaspect="1"/>
 		<image name="nav_files" filename="Default/NavPanel/files" retainaspect="1"/>
-		<image name="nav_backup" filename="Default/NavPanel/backup" retainaspect="1"/>
+		<image name="nav_backup" filename="bup.svg" retainaspect="1"/>
 
 		<!-- Battery -->
 		<image name="battery100" filename="Light/Battery/battery100" retainaspect="1"/>
