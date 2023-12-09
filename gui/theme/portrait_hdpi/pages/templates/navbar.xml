@@ -5,7 +5,7 @@
 			<image>
 				<condition var1="tw_busy" var2="0"/>
 				<condition var1="real_gestures_enable" var2="1"/>
-				<placement x="435" y="%gst_line_y%" placement="4"/>
+				<placement x="%center_x%" y="%gst_line_y%" placement="4"/>
 				<image resource="nb_gesture_line"/>
 			</image>
 		</template>
