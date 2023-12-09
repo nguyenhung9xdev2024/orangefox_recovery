@@ -42,6 +42,8 @@ extern "C" {
 
 #include "rapidxml.hpp"
 #include "objects.hpp"
+#include "nanosvg.hpp"
+#include "nanosvgrast.h"
 
 #define TMP_RESOURCE_NAME   "/tmp/extract.bin"
 
@@ -73,6 +75,14 @@ int Resource::ExtractResource(ZipArchiveHandle pZip, std::string folderName, std
 	return 0;
 }
 
+bool endsWith(std::string const &fullString, std::string const &ending) {
+    if (fullString.length() >= ending.length()) {
+        return (0 == fullString.compare (fullString.length() - ending.length(), ending.length(), ending));
+    } else {
+        return false;
+    }
+}
+
 void Resource::LoadImage(ZipArchiveHandle pZip, std::string file, gr_surface* surface)
 {
 	int rc = 0;
@@ -91,6 +101,12 @@ void Resource::LoadImage(ZipArchiveHandle pZip, std::string file, gr_surface* su
 	{
 		// File name in xml may have included .png so try without adding .png
 		rc = res_create_surface(file.c_str(), surface);
+		if (rc == 0) return;
+		
+		if (endsWith(file, ".svg")) {
+			std::string nam = std::string(TWRES) + std::string("images/") + file;
+			rc = res_create_svg_surface(nam.c_str(), surface);
+		}
 	}
 	if (rc != 0)
 		LOGINFO("Failed to load image from %s%s, error %d\n", file.c_str(), pZip ? " (zip)" : "", rc);

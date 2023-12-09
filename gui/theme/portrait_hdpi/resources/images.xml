@@ -50,6 +50,7 @@
 		
 		
 
+		<image name="demo" filename="demo.svg" retainaspect="1"/>
 
 
 
@@ -58,7 +59,7 @@
 		<image name="nav_menu_d" filename="Default/NavPanel/menu_d" retainaspect="1"/>
 		<image name="nav_wipe_d" filename="Default/NavPanel/wipe_d" retainaspect="1"/>
 		<image name="nav_files_d" filename="Default/NavPanel/files_d" retainaspect="1"/>
-		<image name="nav_backup_d" filename="Default/NavPanel/backup_d" retainaspect="1"/>
+		<image name="nav_backup_d" filename="bup.svg" retainaspect="1"/>
 		
 		<image name="actionbar_btn" filename="Default/ActionBar/actionbar_btn" retainaspect="1"/>
 		<image name="actionbar_btn_hl" filename="Default/ActionBar/actionbar_btn_hl" retainaspect="1"/>
