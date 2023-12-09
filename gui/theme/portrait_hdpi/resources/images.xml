@@ -14,12 +14,12 @@
 		<shape name="btn_flat_qw" w="%btn_half_w%" h="%btn_h%" radius="-1" stroke="3" color="#666666"/>
 
 		<shape name="btn_raised_warn" w="%btn_w%" h="%btn_h%" radius="-1" color="#E51C23" />
-		<shape name="nav_empty" w="270" h="168" color="#00000000"/>
-		<shape name="nav_hl" color="#B8B8B842" radius="36" w="270" h="168"/>
-		<shape name="nb_gesture_line" w="310" h="7" color="%text%" radius="-1" />
+		<shape name="nav_empty" w="200" h="168" color="#00000000"/>
+		<shape name="nav_hl" color="#B8B8B842" radius="36" w="200" h="168"/>
+		<shape name="nb_gesture_line" w="210" h="7" color="%text%" radius="-1" />
 		<shape name="search_bar_bg" color="%cards_bg%" radius="36" w="984" h="260" />
 		<shape name="nav_pill" color="%accent%" radius="-1" w="%np_pill_w%" h="%np_pill_h%" />
-		
+
 		<shape name="power_card" color="%cards_bg%" radius="32" w="324" h="294" />
 
 		<shape name="nb_empty" color="#00000000" w="318" h="144" />
