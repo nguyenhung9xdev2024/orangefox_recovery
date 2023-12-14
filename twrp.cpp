@@ -120,11 +120,9 @@ static void Decrypt_Page(bool SkipDecryption, bool datamedia) {
 static void process_fastbootd_mode() {
 		LOGINFO("starting fastboot\n");
 
-#ifdef TW_LOAD_VENDOR_MODULES
-		if (android::base::GetBoolProperty("ro.virtual_ab.enabled", false)) {
+		if (android::base::GetBoolProperty("ro.boot.dynamic_partitions", false)) {
 			PartitionManager.Unmap_Super_Devices();
 		}
-#endif
 
 		gui_msg(Msg("fastboot_console_msg=Entered Fastboot mode..."));
 		property_set("ro.orangefox.fastbootd", "1");
@@ -266,7 +264,7 @@ static void process_recovery_mode(twrpAdbBuFifo* adb_bu_fifo, bool skip_decrypti
 		TWFunc::Fixup_Time_On_Boot();
 
 	TWFunc::Update_Log_File();
-	DataManager::ReadSettingsFile();
+	//DataManager::ReadSettingsFile();
 
 	// Run any outstanding OpenRecoveryScript
 	std::string cacheDir = TWFunc::get_log_dir();
@@ -323,7 +321,7 @@ static void process_recovery_mode(twrpAdbBuFifo* adb_bu_fifo, bool skip_decrypti
 				if (!created)
 					LOGERR("Unable to create log directory for TWRP\n");
 			}
-			DataManager::ReadSettingsFile();
+			//DataManager::ReadSettingsFile();
 #endif
 		} else {
 			if ((DataManager::GetIntValue("tw_mount_system_ro") == 0 && sys->Check_Lifetime_Writes() == 0) || DataManager::GetIntValue("tw_mount_system_ro") == 2) {
@@ -501,10 +499,15 @@ int main(int argc, char **argv) {
 
 #ifdef TW_LOAD_VENDOR_MODULES
 	if (startup.Get_Fastboot_Mode()) {
-		TWPartition* ven_dlkm = PartitionManager.Find_Partition_By_Path("/vendor_dlkm");
-		PartitionManager.Prepare_Super_Volume(PartitionManager.Find_Partition_By_Path("/vendor"));
-		if(ven_dlkm) {
-			PartitionManager.Prepare_Super_Volume(ven_dlkm);
+		std::vector<std::string> prepareParts = {
+			"/system_root",
+			"/vendor",
+			"/vendor_dlkm",
+			"/odm"
+		};
+		for (auto& preparePart : prepareParts) {
+			TWPartition *part = PartitionManager.Find_Partition_By_Path(preparePart);
+			if (part) PartitionManager.Prepare_Super_Volume(part);
 		}
 	}
 #endif
@@ -517,6 +520,9 @@ int main(int argc, char **argv) {
 
 	// Load up all the resources
 	gui_loadResources();
+
+	DataManager::ReadSettingsFile();
+	PageManager::LoadLanguage(DataManager::GetStrValue("tw_language"));
 
 #ifdef TW_USE_HEALTH_SERVICES_FOR_BATTERY
 	std::string value;
@@ -595,7 +601,7 @@ int main(int argc, char **argv) {
 	}
 
 	// Language
-	PageManager::LoadLanguage(DataManager::GetStrValue("tw_language"));
+	//PageManager::LoadLanguage(DataManager::GetStrValue("tw_language"));
 	GUIConsole::Translate_Now();
 
 	// Fox extra setup

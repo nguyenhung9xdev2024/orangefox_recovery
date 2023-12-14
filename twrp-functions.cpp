@@ -858,6 +858,16 @@ bool TWFunc::Wait_For_Battery(std::chrono::nanoseconds timeout) {
 	return false;
 }
 
+bool TWFunc::File_Exists(const string& path)
+{
+	struct stat st;
+
+	if (stat(path.c_str(), &st) == 0) {
+		return !S_ISDIR(st.st_mode);
+	}
+	return false;
+}
+
 #ifndef BUILD_TWRPTAR_MAIN
 
 // Returns "/path" from a full /path/to/file.name
@@ -1042,6 +1052,7 @@ void TWFunc::Update_Log_File(void) {
 			}
 		}
 	}
+	if (TWFunc::File_Exists("/data/cache/command")) remove("/data/cache/command");
 	sync();
 }
 
@@ -1082,6 +1093,13 @@ int TWFunc::tw_reboot(RebootCommand command)
   	TWFunc::Run_Before_Reboot();
   	// ----
    
+	TWPartition *dataPart = PartitionManager.Find_Partition_By_Path("/data");
+	if (dataPart) {
+		if (dataPart->Is_Mounted()) {
+			dataPart->UnMount(false);
+		}
+	}
+
 	switch (command) {
 		case rb_current:
 		case rb_system:
